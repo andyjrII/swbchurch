@@ -1,692 +1,576 @@
+{% extends "master.html" %}
+
+<!-- load static -->
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta
-      name="description"
-      content="Soul Winning Believers Church landing page."
-    />
-    <meta name="author" content="NerdVille" />
-    <link
-      rel="icon"
-      href="{% static 'assets/imgs/logo.png' %}"
-      type="image/icon type"
-    />
-    <title>SWBC | Soul Winning Believers Church</title>
+<!-- title -->
+{% block title %} SWBC | Soul Winning Believers Church {% endblock %}
 
-    <!-- font icons -->
-    <link
-      rel="stylesheet"
-      href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}"
-    />
+<!-- content -->
+{% block content %}
 
-    <link
-      rel="stylesheet"
-      href="{% static 'assets/vendors/animate/animate.css' %}"
-    />
+<!-- header -->
+<header id="home" class="header">
+  <div class="overlay text-white text-center">
+    <h1 class="display-2 font-weight-bold my-3">Soul Winning</h1>
+    <h2 class="display-4 mb-5">Believers Church</h2>
+    <a class="btn btn-lg btn-primary" href="#gallery">View Our gallery</a>
+  </div>
+</header>
 
-    <link rel="stylesheet" href="{% static 'assets/css/swbc.css' %}" />
-  </head>
-  <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-    <!-- Navbar -->
-    <nav
-      class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top"
-      data-spy="affix"
-      data-offset-top="10"
-    >
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#gallery">Gallery</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#book-table">Donations</a>
-          </li>
-        </ul>
-        <a class="navbar-brand m-auto" href="#">
-          <img
-            src="{% static 'assets/imgs/logo.png' %}"
-            class="brand-img"
-            alt="SWBC logo"
-          />
-          <span class="brand-txt">SWBC</span>
-        </a>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#services"
-              >Services<span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#newsevents">News & Events</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a href="/sermons" class="btn btn-primary ml-xl-4">Sermons</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!-- header -->
-    <header id="home" class="header">
-      <div class="overlay text-white text-center">
-        <h1 class="display-2 font-weight-bold my-3">Soul Winning</h1>
-        <h2 class="display-4 mb-5">Believers Church</h2>
-        <a class="btn btn-lg btn-primary" href="#gallery">View Our gallery</a>
-      </div>
-    </header>
-
-    <!--  About Section  -->
-    <div
-      id="about"
-      class="container-fluid wow fadeIn"
-      id="about"
-      data-wow-duration="1.5s"
-    >
-      <div class="row">
-        <div class="col-lg-6 has-img-bg"></div>
-        <div class="col-lg-6">
-          <div class="row justify-content-center">
-            <div class="col-sm-11 py-4 my-4">
-              <h2 class="mb-4">About Us</h2>
-              <h4 class="mb-2 text-danger">It's a Place Where</h4>
-              <ul class="list-group">
-                <li class="list-group-item bg-dark">
-                  We are addicted to evangelism in season and out of season
-                </li>
-                <li class="list-group-item bg-dark">
-                  We take the ministry not for fame, wealth creation, social
-                  status, or as a means to drive personal ambition
-                </li>
-                <li class="list-group-item bg-dark">
-                  We choose the path of honour of those God placed over us
-                </li>
-                <li class="list-group-item bg-dark">
-                  We esteem spiritual relationship over other relationships
-                </li>
-                <li class="list-group-item bg-dark">
-                  We are given to correct bible interpretation
-                </li>
-                <li class="list-group-item bg-dark">
-                  We are all committed to pray continually (prayer has no
-                  department)
-                </li>
-                <li class="list-group-item bg-dark">
-                  We know how to about and abase with things
-                </li>
-                <li class="list-group-item bg-dark">
-                  We are not ignorant concerning spiritual gifts
-                </li>
-                <li class="list-group-item bg-dark">
-                  We have a strong circle that keeps ourselves accountable and
-                  teachable
-                </li>
-                <li class="list-group-item bg-dark">
-                  We give as a responsibility
-                </li>
-                <li class="list-group-item bg-dark">
-                  We are consecrated to do the work of ministry
-                </li>
-              </ul>
-
-              <h4 class="my-2 text-danger">When We Gather</h4>
-              <ul class="list-group">
-                <li class="list-group-item bg-dark">We gather for better</li>
-                <li class="list-group-item bg-dark">
-                  We open our mouth to sing and lift our hands as the posture
-                  for worship
-                </li>
-                <li class="list-group-item bg-dark">We take to instructions</li>
-                <li class="list-group-item bg-dark">
-                  We gather for explanation of the scripture
-                </li>
-                <li class="list-group-item bg-dark">
-                  Our bible, note and pen are ready
-                </li>
-                <li class="list-group-item bg-dark">
-                  We gather to be taught for hours
-                </li>
-                <li class="list-group-item bg-dark">
-                  We gather to pray for hours
-                </li>
-                <li class="list-group-item bg-dark">
-                  We place premium value on who God has placed over us
-                </li>
-                <li class="list-group-item bg-dark">
-                  We despise not prophecies
-                </li>
-                <li class="list-group-item bg-dark">
-                  NO ENTERTAINMENT, NO COMEDY
-                </li>
-                <li class="list-group-item bg-dark">
-                  EVERYTING IS DONE DECENTLY AND IN ORDER
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--  gallery Section  -->
-    <div
-      id="gallery"
-      class="text-center bg-dark text-light has-height-md middle-items wow fadeIn"
-    >
-      <h2 class="section-title">GALLERY</h2>
-    </div>
-    <div class="gallery row">
-      <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
-        <img
-          src="{% static 'assets/imgs/gallery-1.jpg' %}"
-          alt=" "
-          class="gallery-img"
-        />
-        <a href="#" class="gallery-overlay">
-          <i class="gallery-icon ti-plus"></i>
-        </a>
-      </div>
-      <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
-        <img
-          src="{% static 'assets/imgs/gallery-2.jpg' %}"
-          alt=""
-          class="gallery-img"
-        />
-        <a href="#" class="gallery-overlay">
-          <i class="gallery-icon ti-plus"></i>
-        </a>
-      </div>
-      <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
-        <img
-          src="{% static 'assets/imgs/gallery-3.jpg' %}"
-          alt=""
-          class="gallery-img"
-        />
-        <a href="#" class="gallery-overlay">
-          <i class="gallery-icon ti-plus"></i>
-        </a>
-      </div>
-      <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
-        <img
-          src="{% static 'assets/imgs/gallery-4.jpg' %}"
-          alt=""
-          class="gallery-img"
-        />
-        <a href="#" class="gallery-overlay">
-          <i class="gallery-icon ti-plus"></i>
-        </a>
-      </div>
-      <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
-        <img
-          src="{% static 'assets/imgs/gallery-5.jpg' %}"
-          alt=""
-          class="gallery-img"
-        />
-        <a href="#" class="gallery-overlay">
-          <i class="gallery-icon ti-plus"></i>
-        </a>
-      </div>
-      <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
-        <img
-          src="{% static 'assets/imgs/gallery-6.jpg' %}"
-          alt=""
-          class="gallery-img"
-        />
-        <a href="#" class="gallery-overlay">
-          <i class="gallery-icon ti-plus"></i>
-        </a>
-      </div>
-      <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
-        <img
-          src="{% static 'assets/imgs/gallery-7.jpg' %}"
-          alt=""
-          class="gallery-img"
-        />
-        <a href="#" class="gallery-overlay">
-          <i class="gallery-icon ti-plus"></i>
-        </a>
-      </div>
-      <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
-        <img
-          src="{% static 'assets/imgs/gallery-8.jpg' %}"
-          alt=""
-          class="gallery-img"
-        />
-        <a href="#" class="gallery-overlay">
-          <i class="gallery-icon ti-plus"></i>
-        </a>
-      </div>
-      <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
-        <img
-          src="{% static 'assets/imgs/gallery-9.jpg' %}"
-          alt=""
-          class="gallery-img"
-        />
-        <a href="#" class="gallery-overlay">
-          <i class="gallery-icon ti-plus"></i>
-        </a>
-      </div>
-      <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
-        <img
-          src="{% static 'assets/imgs/gallery-10.jpg' %}"
-          alt=""
-          class="gallery-img"
-        />
-        <a href="#" class="gallery-overlay">
-          <i class="gallery-icon ti-plus"></i>
-        </a>
-      </div>
-      <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
-        <img
-          src="{% static 'assets/imgs/gallery-11.jpg' %}"
-          alt=""
-          class="gallery-img"
-        />
-        <a href="#" class="gallery-overlay">
-          <i class="gallery-icon ti-plus"></i>
-        </a>
-      </div>
-      <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
-        <img
-          src="{% static 'assets/imgs/gallery-12.jpg' %}"
-          alt=""
-          class="gallery-img"
-        />
-        <a href="#" class="gallery-overlay">
-          <i class="gallery-icon ti-plus"></i>
-        </a>
-      </div>
-    </div>
-
-    <!-- PAYMENT Section  -->
-    <div
-      class="container-fluid has-bg-overlay text-center text-light has-height-lg middle-items"
-      id="book-table"
-    >
-      <div class="">
-        <h2 class="section-title mb-5">DONATIONS</h2>
-        <div class="row mb-5">
-          <div class="col-sm-6 col-md-3 col-xs-12 my-2">
-            <input
-              type="text"
-              id="payment"
-              class="form-control form-control-lg custom-form-control"
-              placeholder="NAME"
-            />
-          </div>
-          <div class="col-sm-6 col-md-3 col-xs-12 my-2">
-            <input
-              type="email"
-              id="payment"
-              class="form-control form-control-lg custom-form-control"
-              placeholder="EMAIL"
-            />
-          </div>
-          <div class="col-sm-6 col-md-2 col-xs-12 my-2">
-            <input
-              type="number"
-              id="payment"
-              class="form-control form-control-lg custom-form-control"
-              placeholder="AMOUNT"
-              max="20"
-              min="0"
-            />
-          </div>
-          <div class="col-sm-6 col-md-4 col-xs-12 my-2">
-            <input
-              type="text"
-              id="payment"
-              class="form-control form-control-lg custom-form-control"
-              placeholder="DESCRIPTION"
-            />
-          </div>
-        </div>
-        <a href="#" class="btn btn-lg btn-primary" id="rounded-btn">DONATE</a>
-      </div>
-    </div>
-
-    <!-- SERVICES Section  -->
-    <div
-      id="services"
-      class="container-fluid bg-dark text-light py-5 text-center wow fadeIn"
-    >
-      <h2 class="section-title py-5">OUR SERVICES</h2>
+<!--  About Section  -->
+<div
+  id="about"
+  class="container-fluid wow fadeIn"
+  id="about"
+  data-wow-duration="1.5s"
+>
+  <div class="row">
+    <div class="col-lg-6 has-img-bg"></div>
+    <div class="col-lg-6">
       <div class="row justify-content-center">
-        <div class="col-sm-7 col-md-4 mb-5">
-          <ul
-            class="nav nav-pills nav-justified mb-3"
-            id="pills-tab"
-            role="tablist"
-          >
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                id="pills-home-tab"
-                data-toggle="pill"
-                href="#weekly"
-                role="tab"
-                aria-controls="pills-home"
-                aria-selected="true"
-                >Weekly Services</a
-              >
+        <div class="col-sm-11 py-4 my-4">
+          <h2 class="mb-4">About Us</h2>
+          <h4 class="mb-2 text-danger">It's a Place Where</h4>
+          <ul class="list-group">
+            <li class="list-group-item bg-dark">
+              We are addicted to evangelism in season and out of season
             </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                id="pills-profile-tab"
-                data-toggle="pill"
-                href="#special"
-                role="tab"
-                aria-controls="pills-profile"
-                aria-selected="false"
-                >Special Services</a
-              >
+            <li class="list-group-item bg-dark">
+              We take the ministry not for fame, wealth creation, social status,
+              or as a means to drive personal ambition
+            </li>
+            <li class="list-group-item bg-dark">
+              We choose the path of honour of those God placed over us
+            </li>
+            <li class="list-group-item bg-dark">
+              We esteem spiritual relationship over other relationships
+            </li>
+            <li class="list-group-item bg-dark">
+              We are given to correct bible interpretation
+            </li>
+            <li class="list-group-item bg-dark">
+              We are all committed to pray continually (prayer has no
+              department)
+            </li>
+            <li class="list-group-item bg-dark">
+              We know how to about and abase with things
+            </li>
+            <li class="list-group-item bg-dark">
+              We are not ignorant concerning spiritual gifts
+            </li>
+            <li class="list-group-item bg-dark">
+              We have a strong circle that keeps ourselves accountable and
+              teachable
+            </li>
+            <li class="list-group-item bg-dark">We give as a responsibility</li>
+            <li class="list-group-item bg-dark">
+              We are consecrated to do the work of ministry
+            </li>
+          </ul>
+
+          <h4 class="my-2 text-danger">When We Gather</h4>
+          <ul class="list-group">
+            <li class="list-group-item bg-dark">We gather for better</li>
+            <li class="list-group-item bg-dark">
+              We open our mouth to sing and lift our hands as the posture for
+              worship
+            </li>
+            <li class="list-group-item bg-dark">We take to instructions</li>
+            <li class="list-group-item bg-dark">
+              We gather for explanation of the scripture
+            </li>
+            <li class="list-group-item bg-dark">
+              Our bible, note and pen are ready
+            </li>
+            <li class="list-group-item bg-dark">
+              We gather to be taught for hours
+            </li>
+            <li class="list-group-item bg-dark">We gather to pray for hours</li>
+            <li class="list-group-item bg-dark">
+              We place premium value on who God has placed over us
+            </li>
+            <li class="list-group-item bg-dark">We despise not prophecies</li>
+            <li class="list-group-item bg-dark">NO ENTERTAINMENT, NO COMEDY</li>
+            <li class="list-group-item bg-dark">
+              EVERYTING IS DONE DECENTLY AND IN ORDER
             </li>
           </ul>
         </div>
       </div>
-      <div class="tab-content" id="pills-tabContent">
-        <div
-          class="tab-pane fade show active"
-          id="weekly"
-          role="tabpanel"
-          aria-labelledby="pills-home-tab"
-        >
-          <div class="row">
-            <div class="col-md-3">
-              <div class="card bg-transparent border my-3 my-md-0">
-                <img
-                  src="{% static 'assets/imgs/services-1.jpg' %}"
-                  alt="sunday service"
-                  class="rounded-0 card-img-top mg-responsive"
-                />
-                <div class="card-body">
-                  <h1 class="text-center mb-4">
-                    <span class="badge badge-primary">8:00AM</span>
-                  </h1>
-                  <h4 class="pt20 pb20">Sundays</h4>
-                  <p class="text-white">Sunday Service</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card bg-transparent border my-3 my-md-0">
-                <img
-                  src="{% static 'assets/imgs/services-2.jpg' %}"
-                  alt="Wednesday prayer meeting"
-                  class="rounded-0 card-img-top mg-responsive"
-                />
-                <div class="card-body">
-                  <h1 class="text-center mb-4">
-                    <span class="badge badge-primary">5:30PM</span>
-                  </h1>
-                  <h4 class="pt20 pb20">Wednesdays</h4>
-                  <p class="text-white">Prayer Meeting</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card bg-transparent border my-3 my-md-0">
-                <img
-                  src="{% static 'assets/imgs/services-3.jpg' %}"
-                  alt="mission is possible"
-                  class="rounded-0 card-img-top mg-responsive"
-                />
-                <div class="card-body">
-                  <h1 class="text-center mb-4">
-                    <span class="badge badge-primary">10:00AM</span>
-                  </h1>
-                  <h4 class="pt20 pb20">Saturdays</h4>
-                  <p class="text-white">Mission is Possible</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card bg-transparent border my-3 my-md-0">
-                <img
-                  src="{% static 'assets/imgs/services-4.jpg' %}"
-                  alt="word drill"
-                  class="rounded-0 card-img-top mg-responsive"
-                />
-                <div class="card-body">
-                  <h1 class="text-center mb-4">
-                    <a href="#" class="badge badge-primary">7:00AM</a>
-                  </h1>
-                  <h4 class="pt20 pb20">Last Saturdays</h4>
-                  <p class="text-white">Word Drill</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="tab-pane fade"
-          id="special"
-          role="tabpanel"
-          aria-labelledby="pills-profile-tab"
-        >
-          <div class="row">
-            <div class="col-md-4 my-3 my-md-0">
-              <div class="card bg-transparent border">
-                <img
-                  src="{% static 'assets/imgs/services-4.jpg' %}"
-                  alt=""
-                  class="rounded-0 card-img-top mg-responsive"
-                />
-                <div class="card-body">
-                  <h1 class="text-center mb-4">
-                    <a href="#" class="badge badge-primary">$15</a>
-                  </h1>
-                  <h4 class="pt20 pb20">Consectetur Adipisicing Elit</h4>
-                  <p class="text-white">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Culpa provident illum officiis fugit laudantium voluptatem
-                    sit iste delectus qui ex.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 my-3 my-md-0">
-              <div class="card bg-transparent border">
-                <img
-                  src="{% static 'assets/imgs/services-5.jpg' %}"
-                  alt=""
-                  class="rounded-0 card-img-top mg-responsive"
-                />
-                <div class="card-body">
-                  <h1 class="text-center mb-4">
-                    <a href="#" class="badge badge-primary">$29</a>
-                  </h1>
-                  <h4 class="pt20 pb20">Ullam Laboriosam</h4>
-                  <p class="text-white">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Culpa provident illum officiis fugit laudantium voluptatem
-                    sit iste delectus qui ex.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 my-3 my-md-0">
-              <div class="card bg-transparent border">
-                <img
-                  src="{% static 'assets/imgs/services-6.jpg' %}"
-                  alt=""
-                  class="rounded-0 card-img-top mg-responsive"
-                />
-                <div class="card-body">
-                  <h1 class="text-center mb-4">
-                    <a href="#" class="badge badge-primary">$3</a>
-                  </h1>
-                  <h4 class="pt20 pb20">Fugit Ipsam</h4>
-                  <p class="text-white">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Culpa provident illum officiis fugit laudantium voluptatem
-                    sit iste delectus qui ex.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    </div>
+  </div>
+</div>
+
+<!--  gallery Section  -->
+<div
+  id="gallery"
+  class="text-center bg-dark text-light has-height-md middle-items wow fadeIn"
+>
+  <h2 class="section-title">GALLERY</h2>
+</div>
+<div class="gallery row">
+  <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
+    <img
+      src="{% static 'assets/imgs/gallery-1.jpg' %}"
+      alt=" "
+      class="gallery-img"
+    />
+    <a href="#" class="gallery-overlay">
+      <i class="gallery-icon ti-plus"></i>
+    </a>
+  </div>
+  <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
+    <img
+      src="{% static 'assets/imgs/gallery-2.jpg' %}"
+      alt=""
+      class="gallery-img"
+    />
+    <a href="#" class="gallery-overlay">
+      <i class="gallery-icon ti-plus"></i>
+    </a>
+  </div>
+  <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
+    <img
+      src="{% static 'assets/imgs/gallery-3.jpg' %}"
+      alt=""
+      class="gallery-img"
+    />
+    <a href="#" class="gallery-overlay">
+      <i class="gallery-icon ti-plus"></i>
+    </a>
+  </div>
+  <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
+    <img
+      src="{% static 'assets/imgs/gallery-4.jpg' %}"
+      alt=""
+      class="gallery-img"
+    />
+    <a href="#" class="gallery-overlay">
+      <i class="gallery-icon ti-plus"></i>
+    </a>
+  </div>
+  <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
+    <img
+      src="{% static 'assets/imgs/gallery-5.jpg' %}"
+      alt=""
+      class="gallery-img"
+    />
+    <a href="#" class="gallery-overlay">
+      <i class="gallery-icon ti-plus"></i>
+    </a>
+  </div>
+  <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
+    <img
+      src="{% static 'assets/imgs/gallery-6.jpg' %}"
+      alt=""
+      class="gallery-img"
+    />
+    <a href="#" class="gallery-overlay">
+      <i class="gallery-icon ti-plus"></i>
+    </a>
+  </div>
+  <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
+    <img
+      src="{% static 'assets/imgs/gallery-7.jpg' %}"
+      alt=""
+      class="gallery-img"
+    />
+    <a href="#" class="gallery-overlay">
+      <i class="gallery-icon ti-plus"></i>
+    </a>
+  </div>
+  <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
+    <img
+      src="{% static 'assets/imgs/gallery-8.jpg' %}"
+      alt=""
+      class="gallery-img"
+    />
+    <a href="#" class="gallery-overlay">
+      <i class="gallery-icon ti-plus"></i>
+    </a>
+  </div>
+  <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
+    <img
+      src="{% static 'assets/imgs/gallery-9.jpg' %}"
+      alt=""
+      class="gallery-img"
+    />
+    <a href="#" class="gallery-overlay">
+      <i class="gallery-icon ti-plus"></i>
+    </a>
+  </div>
+  <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
+    <img
+      src="{% static 'assets/imgs/gallery-10.jpg' %}"
+      alt=""
+      class="gallery-img"
+    />
+    <a href="#" class="gallery-overlay">
+      <i class="gallery-icon ti-plus"></i>
+    </a>
+  </div>
+  <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
+    <img
+      src="{% static 'assets/imgs/gallery-11.jpg' %}"
+      alt=""
+      class="gallery-img"
+    />
+    <a href="#" class="gallery-overlay">
+      <i class="gallery-icon ti-plus"></i>
+    </a>
+  </div>
+  <div class="col-sm-6 col-lg-3 gallery-item wow fadeIn">
+    <img
+      src="{% static 'assets/imgs/gallery-12.jpg' %}"
+      alt=""
+      class="gallery-img"
+    />
+    <a href="#" class="gallery-overlay">
+      <i class="gallery-icon ti-plus"></i>
+    </a>
+  </div>
+</div>
+
+<!-- PAYMENT Section  -->
+<div
+  class="container-fluid has-bg-overlay text-center text-light has-height-lg middle-items"
+  id="book-table"
+>
+  <div class="">
+    <h2 class="section-title mb-5">DONATIONS</h2>
+    <div class="row mb-5">
+      <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+        <input
+          type="text"
+          id="payment"
+          class="form-control form-control-lg custom-form-control"
+          placeholder="NAME"
+        />
+      </div>
+      <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+        <input
+          type="email"
+          id="payment"
+          class="form-control form-control-lg custom-form-control"
+          placeholder="EMAIL"
+        />
+      </div>
+      <div class="col-sm-6 col-md-2 col-xs-12 my-2">
+        <input
+          type="number"
+          id="payment"
+          class="form-control form-control-lg custom-form-control"
+          placeholder="AMOUNT"
+          max="20"
+          min="0"
+        />
+      </div>
+      <div class="col-sm-6 col-md-4 col-xs-12 my-2">
+        <input
+          type="text"
+          id="payment"
+          class="form-control form-control-lg custom-form-control"
+          placeholder="DESCRIPTION"
+        />
       </div>
     </div>
+    <a href="#" class="btn btn-lg btn-primary" id="rounded-btn">DONATE</a>
+  </div>
+</div>
 
-    <!-- NEWS & EVENTS Section  -->
-    <div
-      id="newsevents"
-      class="container-fluid wow fadeIn bg-dark text-light has-height-lg middle-items"
-    >
-      <h2 class="section-title my-5 text-center">NEWS & EVENTS</h2>
-      <div class="row mt-3 mb-5">
-        <div class="col-md-4 my-3 my-md-0">
-          <div class="newsevents-card">
-            <h3 class="newsevents-title">John Doe</h3>
-            <h6 class="newsevents-subtitle">Web Designer</h6>
-            <div class="newsevents-body">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum
-                nobis eligendi, quaerat accusamus ipsum sequi dignissimos
-                consequuntur blanditiis natus. Aperiam!
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 my-3 my-md-0">
-          <div class="newsevents-card">
-            <h3 class="newsevents-title">Steve Thomas</h3>
-            <h6 class="newsevents-subtitle">UX/UI Designer</h6>
-            <div class="newsevents-body">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Laborum minus obcaecati cum eligendi perferendis magni dolorum
-                ipsum magnam, sunt reiciendis natus. Aperiam!
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 my-3 my-md-0">
-          <div class="newsevents-card">
-            <h3 class="newsevents-title">Miranda Joy</h3>
-            <h6 class="newsevents-subtitle">Graphic Designer</h6>
-            <div class="newsevents-body">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aliquid, nam. Earum nobis eligendi, dignissimos consequuntur
-                blanditiis natus. Aperiam!
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+<!-- SERVICES Section  -->
+<div
+  id="services"
+  class="container-fluid bg-dark text-light py-5 text-center wow fadeIn"
+>
+  <h2 class="section-title py-5">OUR SERVICES</h2>
+  <div class="row justify-content-center">
+    <div class="col-sm-7 col-md-4 mb-5">
+      <ul
+        class="nav nav-pills nav-justified mb-3"
+        id="pills-tab"
+        role="tablist"
+      >
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            id="pills-home-tab"
+            data-toggle="pill"
+            href="#weekly"
+            role="tab"
+            aria-controls="pills-home"
+            aria-selected="true"
+            >Weekly Services</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="pills-profile-tab"
+            data-toggle="pill"
+            href="#special"
+            role="tab"
+            aria-controls="pills-profile"
+            aria-selected="false"
+            >Special Services</a
+          >
+        </li>
+      </ul>
     </div>
-
-    <!-- CONTACT Section  -->
+  </div>
+  <div class="tab-content" id="pills-tabContent">
     <div
-      id="contact"
-      class="container-fluid bg-dark text-light border-top wow fadeIn"
+      class="tab-pane fade show active"
+      id="weekly"
+      role="tabpanel"
+      aria-labelledby="pills-home-tab"
     >
       <div class="row">
-        <div class="col-md-6 px-0">
-          <!-- google maps -->
-          <div id="map" style="width: 100%; height: 100%; min-height: 400px">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3089.3057200366884!2d2.986596673652676!3d6.901026418663885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b0f065f547873%3A0xa49fcdbb47741598!2sAhmadiyya%20Mosque!5e1!3m2!1sen!2sng!4v1705781676598!5m2!1sen!2sng"
-              width="600"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+        <div class="col-md-3">
+          <div class="card bg-transparent border my-3 my-md-0">
+            <img
+              src="{% static 'assets/imgs/services-1.jpg' %}"
+              alt="sunday service"
+              class="rounded-0 card-img-top mg-responsive"
+            />
+            <div class="card-body">
+              <h1 class="text-center mb-4">
+                <span class="badge badge-primary">8:00AM</span>
+              </h1>
+              <h4 class="pt20 pb20">Sundays</h4>
+              <p class="text-white">Sunday Service</p>
+            </div>
           </div>
         </div>
-        <div class="col-md-6 px-5 has-height-lg middle-items">
-          <h3>FIND US</h3>
+        <div class="col-md-3">
+          <div class="card bg-transparent border my-3 my-md-0">
+            <img
+              src="{% static 'assets/imgs/services-2.jpg' %}"
+              alt="Wednesday prayer meeting"
+              class="rounded-0 card-img-top mg-responsive"
+            />
+            <div class="card-body">
+              <h1 class="text-center mb-4">
+                <span class="badge badge-primary">5:30PM</span>
+              </h1>
+              <h4 class="pt20 pb20">Wednesdays</h4>
+              <p class="text-white">Prayer Meeting</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bg-transparent border my-3 my-md-0">
+            <img
+              src="{% static 'assets/imgs/services-3.jpg' %}"
+              alt="mission is possible"
+              class="rounded-0 card-img-top mg-responsive"
+            />
+            <div class="card-body">
+              <h1 class="text-center mb-4">
+                <span class="badge badge-primary">10:00AM</span>
+              </h1>
+              <h4 class="pt20 pb20">Saturdays</h4>
+              <p class="text-white">Mission is Possible</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bg-transparent border my-3 my-md-0">
+            <img
+              src="{% static 'assets/imgs/services-4.jpg' %}"
+              alt="word drill"
+              class="rounded-0 card-img-top mg-responsive"
+            />
+            <div class="card-body">
+              <h1 class="text-center mb-4">
+                <a href="#" class="badge badge-primary">7:00AM</a>
+              </h1>
+              <h4 class="pt20 pb20">Last Saturdays</h4>
+              <p class="text-white">Word Drill</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="special"
+      role="tabpanel"
+      aria-labelledby="pills-profile-tab"
+    >
+      <div class="row">
+        <div class="col-md-4 my-3 my-md-0">
+          <div class="card bg-transparent border">
+            <img
+              src="{% static 'assets/imgs/services-4.jpg' %}"
+              alt=""
+              class="rounded-0 card-img-top mg-responsive"
+            />
+            <div class="card-body">
+              <h1 class="text-center mb-4">
+                <a href="#" class="badge badge-primary">$15</a>
+              </h1>
+              <h4 class="pt20 pb20">Consectetur Adipisicing Elit</h4>
+              <p class="text-white">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa
+                provident illum officiis fugit laudantium voluptatem sit iste
+                delectus qui ex.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 my-3 my-md-0">
+          <div class="card bg-transparent border">
+            <img
+              src="{% static 'assets/imgs/services-5.jpg' %}"
+              alt=""
+              class="rounded-0 card-img-top mg-responsive"
+            />
+            <div class="card-body">
+              <h1 class="text-center mb-4">
+                <a href="#" class="badge badge-primary">$29</a>
+              </h1>
+              <h4 class="pt20 pb20">Ullam Laboriosam</h4>
+              <p class="text-white">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa
+                provident illum officiis fugit laudantium voluptatem sit iste
+                delectus qui ex.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 my-3 my-md-0">
+          <div class="card bg-transparent border">
+            <img
+              src="{% static 'assets/imgs/services-6.jpg' %}"
+              alt=""
+              class="rounded-0 card-img-top mg-responsive"
+            />
+            <div class="card-body">
+              <h1 class="text-center mb-4">
+                <a href="#" class="badge badge-primary">$3</a>
+              </h1>
+              <h4 class="pt20 pb20">Fugit Ipsam</h4>
+              <p class="text-white">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa
+                provident illum officiis fugit laudantium voluptatem sit iste
+                delectus qui ex.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEWS & EVENTS Section  -->
+<div
+  id="newsevents"
+  class="container-fluid wow fadeIn bg-dark text-light has-height-lg middle-items"
+>
+  <h2 class="section-title my-5 text-center">NEWS & EVENTS</h2>
+  <div class="row mt-3 mb-5">
+    <div class="col-md-4 my-3 my-md-0">
+      <div class="newsevents-card">
+        <h3 class="newsevents-title">John Doe</h3>
+        <h6 class="newsevents-subtitle">Web Designer</h6>
+        <div class="newsevents-body">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit,
-            laboriosam doloremque odio delectus, sunt magnam laborum impedit
-            molestiae, magni quae ipsum, ullam eos! Alias suscipit impedit et,
-            adipisci illo quam.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum
+            nobis eligendi, quaerat accusamus ipsum sequi dignissimos
+            consequuntur blanditiis natus. Aperiam!
           </p>
-          <div class="text-muted">
-            <p>
-              <span class="ti-location-pin pr-3"></span> 12345 Fake ST NoWhere,
-              AB Country
-            </p>
-            <p><span class="ti-support pr-3"></span> (123) 456-7890</p>
-            <p><span class="ti-email pr-3"></span>info@website.com</p>
-          </div>
         </div>
       </div>
     </div>
+    <div class="col-md-4 my-3 my-md-0">
+      <div class="newsevents-card">
+        <h3 class="newsevents-title">Steve Thomas</h3>
+        <h6 class="newsevents-subtitle">UX/UI Designer</h6>
+        <div class="newsevents-body">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum
+            minus obcaecati cum eligendi perferendis magni dolorum ipsum magnam,
+            sunt reiciendis natus. Aperiam!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 my-3 my-md-0">
+      <div class="newsevents-card">
+        <h3 class="newsevents-title">Miranda Joy</h3>
+        <h6 class="newsevents-subtitle">Graphic Designer</h6>
+        <div class="newsevents-body">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid,
+            nam. Earum nobis eligendi, dignissimos consequuntur blanditiis
+            natus. Aperiam!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- page footer  -->
-    <div
-      class="container-fluid bg-dark text-light has-height-md middle-items border-top text-center wow fadeIn"
-    >
-      <div class="row">
-        <div class="col-sm-4">
-          <h3>EMAIL US</h3>
-          <p class="text-muted">info@website.com</p>
-        </div>
-        <div class="col-sm-4">
-          <h3>CALL US</h3>
-          <p class="text-muted">(123) 456-7890</p>
-        </div>
-        <div class="col-sm-4">
-          <h3>FIND US</h3>
-          <p class="text-muted">12345 Fake ST NoWhere AB Country</p>
-        </div>
+<!-- CONTACT Section  -->
+<div
+  id="contact"
+  class="container-fluid bg-dark text-light border-top wow fadeIn"
+>
+  <div class="row">
+    <div class="col-md-6 px-0">
+      <!-- google maps -->
+      <div id="map" style="width: 100%; height: 100%; min-height: 400px">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3089.3057200366884!2d2.986596673652676!3d6.901026418663885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b0f065f547873%3A0xa49fcdbb47741598!2sAhmadiyya%20Mosque!5e1!3m2!1sen!2sng!4v1705781676598!5m2!1sen!2sng"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
     </div>
-    <div class="bg-dark text-light text-center border-top wow fadeIn">
-      <p class="mb-0 py-3 text-muted small">
-        &copy; Copyright
-        <script>
-          document.write(new Date().getFullYear());
-        </script>
-        Made with <i class="ti-heart text-danger"></i> By
-        <a href="http://devcrud.com">DevCRUD</a>
+    <div class="col-md-6 px-5 has-height-lg middle-items">
+      <h3>FIND US</h3>
+      <div class="text-muted">
+        <p>
+          <span class="ti-location-pin pr-3"></span> SWBC Chapel, Beside
+          Ahmadiyya Mosque, off Olorunkemi,<br />
+          <span class="pr-3 mr-4"></span>Express Road, Ilaro, Ogun State
+        </p>
+        <p><span class="ti-support pr-3"></span>+2347082079988</p>
+        <p><span class="ti-support pr-3"></span>+2348160676603</p>
+        <p><span class="ti-email pr-3"></span>swdmissions@gmail.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- page footer  -->
+<div
+  class="container-fluid bg-dark text-light has-height-md middle-items border-top text-center wow fadeIn"
+>
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>EMAIL US</h3>
+      <p class="text-muted">swdmissions@gmail.com</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>CALL US</h3>
+      <p class="text-muted">+2347082079988</p>
+      <p class="text-muted">+2348160676603</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>FIND US</h3>
+      <p class="text-muted">
+        SWBC Chapel, Beside Ahmadiyya Mosque, off Olorunkemi, Express Road,
+        Ilaro, Ogun State
       </p>
     </div>
-    <!-- end of page footer -->
-
-    <!-- core  -->
-    <script src="{% static 'assets/vendors/jquery/jquery-3.4.1.js' %}"></script>
-    <script src="{% static 'assets/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
-
-    <!-- bootstrap affix -->
-    <script src="{% static 'assets/vendors/bootstrap/bootstrap.affix.js' %}"></script>
-
-    <!-- wow.js -->
-    <script src="{% static 'assets/vendors/wow/wow.js' %}"></script>
-
-    <!-- SWBC js -->
-    <script src="{% static 'assets/js/swbc.js' %}"></script>
-  </body>
-</html>
+  </div>
+</div>
+{% endblock %}
