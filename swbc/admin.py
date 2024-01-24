@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import NewsEvent, Sermon
 
-# Register your models here.
+admin.site.register(NewsEvent)
+admin.site.register(Sermon)

@@ -3,3 +3,9 @@
 - A link at the edge of the news & events section to take the user to where all the headlines page
 - Sermons has its separate page
 - Special services section
+  Admin login
+  ###########
+
+username: andyjames
+email: ajsly87@gmail.com
+password: SlyF0x@87
