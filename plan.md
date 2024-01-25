@@ -3,8 +3,12 @@
 - A link at the edge of the news & events section to take the user to where all the headlines page
 - Sermons has its separate page
 - Special services section
-  Admin login
-  ###########
+- Model for Special - title, Details, pictures
+- how to add link to the text from the admin ui textbox
+
+###########################
+Admin login
+###########################
 
 username: andyjames
 email: ajsly87@gmail.com
