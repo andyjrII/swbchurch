@@ -6502,14 +6502,26 @@ body {
 }
 
 .header {
+  background: url(../imgs/main.jpg) no-repeat center center fixed;
   height: 100vh;
   max-height: 900px;
-  background: url(../imgs/main.jpg) no-repeat center center fixed;
-  background-size: cover;
   min-height: 750px;
 }
 
-.header .overlay {
+.header,
+.news_header {
+  background-size: cover;
+}
+
+.news_header {
+  background: url(../imgs/main-news.jpg) no-repeat center center fixed;
+  height: 70vh;
+  max-height: 700px;
+  min-height: 500px;
+}
+
+.header .overlay,
+.news_header .overlay {
   height: 100%;
   background: rgba(33, 37, 41, 0.85);
   display: -webkit-flex;
