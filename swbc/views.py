@@ -11,7 +11,7 @@ def index(request):
 
 
 def newsevents(request):
-    all_newsevents = NewsEvent.objects.all().values()
+    all_newsevents = NewsEvent.objects.all().order_by("-date_updated")
     context = {"all_newsevents": all_newsevents}
     template = loader.get_template("newsevents.html")
     return HttpResponse(template.render(context, request))

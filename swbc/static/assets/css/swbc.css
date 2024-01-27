@@ -3034,10 +3034,15 @@ input[type="button"].btn-block {
   padding: 1.25rem;
 }
 
-.card-img-top {
+.card-img-top,
+.news-img-top {
   width: 100%;
   border-top-left-radius: calc(0.2rem - 1px);
   border-top-right-radius: calc(0.2rem - 1px);
+}
+
+.news-img-top {
+  height: 300px;
 }
 
 .badge {
