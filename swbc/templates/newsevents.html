@@ -1,0 +1,46 @@
+{% extends "master.html" %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- title -->
+{% block title %} SWBC | News & Events {% endblock %}
+
+<!-- content -->
+{% block content %}
+
+<!-- header -->
+<header id="home" class="header">
+  <div class="overlay text-white text-center">
+    <h1 class="display-2 font-weight-bold my-3">News & Events</h1>
+  </div>
+</header>
+
+<div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
+  <div class="row justify-content-center">
+    {% for news in all_newsevents %}
+    <div class="col-md-4 my-3">
+      <div class="card bg-transparent border">
+        <img
+          src="{{news.feature_pic.url}}"
+          alt="{{news.title}}"
+          class="rounded-0 card-img-top mg-responsive"
+        />
+        <div class="card-body">
+          <h5 class="text-center mb-4">
+            <span class="badge badge-primary">{{news.date_updated}}</span>
+          </h5>
+          <h4 class="pt20 pb20">{{news.title}}</h4>
+          <p class="text-white">
+            {{news.content|truncatewords:30}}
+            <a href="#" class="badge badge-danger">More</a>
+          </p>
+          <p>Feature Pic URL: {{news.feature_pic}}</p>
+          <p>Image URL: {{ news.feature_pic.url }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

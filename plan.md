@@ -4,7 +4,8 @@
 - Sermons page
 - how to add link to the text from the admin ui textbox
 - Page for downloading reports formats
-- Services details
+- Only Home and Sermons menu should be visible on other pages except the home page
+- Instead of a new page for services details, it should be a popup
 
 ###########################
 Admin login
