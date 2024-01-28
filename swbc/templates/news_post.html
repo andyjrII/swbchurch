@@ -1,1 +1,41 @@
 {% extends "master.html" %}
+
+<!-- title -->
+{% block title %} SWBC | {{newsevent.title}} {% endblock %}
+
+<!-- content -->
+{% block content %}
+
+<!-- header -->
+<header
+  id="news_post"
+  class="news_post"
+  style="background-image: url({{newsevent.feature_pic.url}})"
+>
+  <div class="overlay text-white text-center">
+    <h1 class="display-4 font-weight-bold my-3">{{newsevent.title}}</h1>
+    <h5>Posted on {{newsevent.date_updated}}</h5>
+  </div>
+</header>
+
+<!--  CONTENT Section  -->
+<div
+  id="content"
+  class="container-fluid wow fadeIn py-5"
+  data-wow-duration="1.5s"
+>
+  <div class="row">
+    <div
+      class="col-lg-4 content-img-bg"
+      style="background-image: url({{newsevent.content_pic.url}})"
+    ></div>
+    <div class="col-lg-8">
+      <div class="row justify-content-center">
+        <div class="col-sm-11 py-4 my-4">
+          <p>{{newsevent.content}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

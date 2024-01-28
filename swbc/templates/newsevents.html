@@ -29,8 +29,8 @@
           </h5>
           <h4 class="pt20 pb20">{{news.title}}</h4>
           <p class="text-white">
-            {{news.content|truncatewords:30}}
-            <a href="#" class="badge badge-danger">More</a>
+            {{news.content|truncatewords:20}}
+            <a href="details/{{news.id}}" class="badge badge-danger">More</a>
           </p>
         </div>
       </div>

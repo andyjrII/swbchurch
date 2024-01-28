@@ -19,12 +19,7 @@
 </header>
 
 <!--  About Section  -->
-<div
-  id="about"
-  class="container-fluid wow fadeIn"
-  id="about"
-  data-wow-duration="1.5s"
->
+<div id="about" class="container-fluid wow fadeIn" data-wow-duration="1.5s">
   <div class="row">
     <div class="col-lg-6 has-img-bg"></div>
     <div class="col-lg-6">
@@ -275,7 +270,9 @@
         />
       </div>
     </div>
-    <a href="#" class="btn btn-lg btn-primary" id="rounded-btn">DONATE</a>
+    <a href="#" class="btn btn-lg btn-primary" id="rounded-btn"
+      >MAKE A DONATION</a
+    >
   </div>
 </div>
 
@@ -521,8 +518,12 @@
         <h6 class="newsevents-subtitle">{{latest.date_updated}}</h6>
         <div class="newsevents-body">
           <p>
-            {{latest.content|truncatewords:30}}
-            <a href="#" class="badge badge-danger">More</a>
+            {{latest.content|truncatewords:20}}
+            <a
+              href="newsevents/details/{{latest.id}}"
+              class="badge badge-danger"
+              >More</a
+            >
           </p>
         </div>
       </div>

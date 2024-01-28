@@ -1,11 +1,10 @@
-- News and events will contain the 3 latest news or events on the home page
-- Each of which will have a "read more" link to take the user to the main news/event
-- A link at the edge of the news & events section to take the user to where all the headlines page
-- Sermons page
+- news & events page should have pagination
+- Sermons page with pagination
 - how to add link to the text from the admin ui textbox
 - Page for downloading reports formats
 - Only Home and Sermons menu should be visible on other pages except the home page
 - Instead of a new page for services details, it should be a popup
+- other news sections in the news post page
 
 ###########################
 Admin login

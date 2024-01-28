@@ -15,3 +15,10 @@ def newsevents(request):
     context = {"all_newsevents": all_newsevents}
     template = loader.get_template("newsevents.html")
     return HttpResponse(template.render(context, request))
+
+
+def details(request, id):
+    newsevent = NewsEvent.objects.get(id=id)
+    context = {"newsevent": newsevent}
+    template = loader.get_template("news_post.html")
+    return HttpResponse(template.render(context, request))
