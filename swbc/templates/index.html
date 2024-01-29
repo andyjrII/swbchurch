@@ -12,8 +12,8 @@
 <!-- header -->
 <header id="home" class="header">
   <div class="overlay text-white text-center">
-    <h1 class="display-2 font-weight-bold my-3">Soul Winning</h1>
-    <h2 class="display-4 mb-5">Believers Church</h2>
+    <h1 class="display-3 font-weight-bold my-3">Soul Winning Believers</h1>
+    <h1 class="display-3 font-weight-bold mb-5">Church</h2>
     <a class="btn btn-lg btn-primary" href="#gallery">View Our gallery</a>
   </div>
 </header>
@@ -518,7 +518,7 @@
         <h6 class="newsevents-subtitle">{{latest.date_updated}}</h6>
         <div class="newsevents-body">
           <p>
-            {{latest.content|truncatewords:20}}
+            {{latest.content|safe|truncatewords:10}}
             <a
               href="newsevents/details/{{latest.id}}"
               class="badge badge-danger"
@@ -531,7 +531,7 @@
     {% endfor %}
   </div>
   <h2 class="text-center mb-4">
-    <a href="/newsevents" class="badge badge-danger">VIEW MORE...</a>
+    <a href="/newsevents" class="badge badge-danger">More Events...</a>
   </h2>
 </div>
 
@@ -567,31 +567,12 @@
         <p><span class="ti-tablet pr-3"></span>+2347082079988</p>
         <p><span class="ti-tablet pr-3"></span>+2348160676603</p>
         <p><span class="ti-email pr-3"></span>swdmissions@gmail.com</p>
+        <p>
+          <a href="https://www.facebook.com/SWD4Christ" class="text-muted"
+            ><span class="ti-facebook pr-3"></span>SWD4Christ</a
+          >
+        </p>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- page footer  -->
-<div
-  class="container-fluid bg-dark text-light has-height-md middle-items border-top text-center wow fadeIn"
->
-  <div class="row">
-    <div class="col-sm-4">
-      <h3>EMAIL US</h3>
-      <p class="text-muted">swdmissions@gmail.com</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>CALL US</h3>
-      <p class="text-muted">+2347082079988</p>
-      <p class="text-muted">+2348160676603</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>FIND US</h3>
-      <p class="text-muted">
-        SWBC Chapel, Beside Ahmadiyya Mosque, off Olorunkemi, Express Road,
-        Ilaro, Ogun State
-      </p>
     </div>
   </div>
 </div>

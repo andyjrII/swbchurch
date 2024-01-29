@@ -31,11 +31,38 @@
     ></div>
     <div class="col-lg-8">
       <div class="row justify-content-center">
-        <div class="col-sm-11 py-4 my-4">
-          <p>{{newsevent.content}}</p>
+        <div class="col-sm-11 py-4 my-4 news_content">
+          {{newsevent.content|safe}}
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- Other news -->
+<div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
+  <h2 class="section-title my-5 text-center">LATEST EVENTS</h2>
+  <div class="row justify-content-center">
+    {% for news in latest_newsevents %}
+    <div class="col-md-3 my-3">
+      <div class="card bg-transparent border">
+        <img
+          src="{{news.feature_pic.url}}"
+          alt="{{news.title}}"
+          class="rounded-0 mg-responsive other-news-img-top"
+        />
+        <div class="card-body">
+          <h5 class="pt20 pb20">{{news.title}}</h5>
+          <p class="text-center mb-4">
+            <span class="text-white">{{news.date_updated}}</span>
+          </p>
+          <p class="text-white">
+            <a href="{{news.id}}" class="btn btn-md btn-danger">Read</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
   </div>
 </div>
 {% endblock %}

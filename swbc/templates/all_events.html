@@ -15,7 +15,7 @@
 
 <div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
   <div class="row justify-content-center">
-    {% for news in all_newsevents %}
+    {% for news in paginated_events %}
     <div class="col-md-4 my-3">
       <div class="card bg-transparent border">
         <img
@@ -29,13 +29,46 @@
           </h5>
           <h4 class="pt20 pb20">{{news.title}}</h4>
           <p class="text-white">
-            {{news.content|truncatewords:20}}
+            {{news.content|safe|truncatewords:15}}
             <a href="details/{{news.id}}" class="badge badge-danger">More</a>
           </p>
         </div>
       </div>
     </div>
     {% endfor %}
+  </div>
+</div>
+
+<div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
+  <div class="pagination">
+    <span class="step-links">
+      {% if paginated_events.has_previous %}
+      <a href="?page=1" class="btn btn-md btn-outline-primary">&laquo; First</a>
+      <a
+        href="?page={{ paginated_events.previous_page_number }}"
+        class="btn btn-md btn-outline-primary"
+        >Previous</a
+      >
+      {% endif %}
+
+      <span class="current">
+        Page {{ paginated_events.number }} of
+        {{paginated_events.paginator.num_pages }}.
+      </span>
+
+      {% if paginated_events.has_next %}
+      <a
+        href="?page={{ paginated_events.next_page_number }}"
+        class="btn btn-md btn-outline-primary"
+        >Next</a
+      >
+      <a
+        href="?page={{ paginated_events.paginator.num_pages }}"
+        class="btn btn-md btn-outline-primary"
+        >Last &raquo;</a
+      >
+      {% endif %}
+    </span>
   </div>
 </div>
 {% endblock %}
