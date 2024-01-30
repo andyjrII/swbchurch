@@ -1,17 +1,20 @@
 from django.http import HttpResponse
 from django.template import loader
-from .models import NewsEvent
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .models import NewsEvent, Service
 
 
 def index(request):
+    # pylint: disable=no-member
     latest_newsevents = NewsEvent.objects.order_by("-date_updated")[:3]
-    context = {"latest_newsevents": latest_newsevents}
+    services = Service.objects.all()
+    context = {"latest_newsevents": latest_newsevents, "services": services}
     template = loader.get_template("index.html")
     return HttpResponse(template.render(context, request))
 
 
 def newsevents(request):
+    # pylint: disable=no-member
     all_newsevents = NewsEvent.objects.all().order_by("-date_updated")
     items_per_page = 12
     paginator = Paginator(all_newsevents, items_per_page)
@@ -28,8 +31,9 @@ def newsevents(request):
 
 
 def details(request, id):
+    # pylint: disable=no-member
     newsevent = NewsEvent.objects.get(id=id)
     latest_newsevents = NewsEvent.objects.order_by("-date_updated")[:4]
     context = {"newsevent": newsevent, "latest_newsevents": latest_newsevents}
-    template = loader.get_template("news_post.html")
+    template = loader.get_template("event_details.html")
     return HttpResponse(template.render(context, request))

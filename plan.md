@@ -1,9 +1,6 @@
-- news & events page should have pagination
 - Sermons page with pagination
-- how to add link to the text from the admin ui textbox
 - Page for downloading reports formats
-- Instead of a new page for services details, it should be a popup
-- SWBC Facebook link
+- Date and text search filter for events & sermons
 
 ###########################
 Admin login
