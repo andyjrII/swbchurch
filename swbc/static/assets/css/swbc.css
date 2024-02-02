@@ -1324,7 +1324,8 @@ fieldset:disabled a.btn {
 
 .card-img-top,
 .news-img-top,
-.other-news-img-top {
+.other-news-img-top,
+.sermon-img-top {
   width: 100%;
   border-top-left-radius: calc(0.2rem - 1px);
   border-top-right-radius: calc(0.2rem - 1px);
@@ -1335,7 +1336,8 @@ fieldset:disabled a.btn {
 }
 
 .special-img-top,
-.other-news-img-top {
+.other-news-img-top,
+.sermon-img-top {
   height: 180px;
 }
 
@@ -1909,11 +1911,19 @@ body {
   min-height: 750px;
 }
 
-.news_header {
-  background: url(../imgs/main-news.jpg) no-repeat center center fixed;
+.news_header,
+.sermons_header {
   height: 70vh;
   max-height: 700px;
   min-height: 500px;
+}
+
+.news_header {
+  background: url(../imgs/main-news.jpg) no-repeat center center fixed;
+}
+
+.sermons_header {
+  background: url(../imgs/main-sermons.jpg) no-repeat center center fixed;
 }
 
 .news_post {
@@ -1931,6 +1941,7 @@ body {
 
 .header .overlay,
 .news_header .overlay,
+.sermons_header .overlay,
 .news_post .overlay,
 .service-modal .overlay {
   height: 100%;
