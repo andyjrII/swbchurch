@@ -75,6 +75,11 @@
           <li class="nav-item">
             <a class="nav-link" href="#donations">Donations</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services"
+              >Services<span class="sr-only">(current)</span></a
+            >
+          </li>
           {% endif %}
         </ul>
         <a class="navbar-brand m-auto" href="/">
@@ -86,31 +91,31 @@
           <span class="brand-txt">SWBC</span>
         </a>
         <ul class="navbar-nav">
-          {% if request.path == '/' %}
           <li class="nav-item">
-            <a class="nav-link" href="#services"
-              >Services<span class="sr-only">(current)</span></a
-            >
-          </li>
-          {% endif %}
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="{% if request.path == '/' %} #newsevents {% else %} /newsevents {% endif %}"
-              >Events</a
-            >
+            {% if request.path == '/' %}
+            <a class="nav-link" href="#events">Events</a>
+            {% else %}
+            <a class="nav-link" href="/newsevents">Events</a>
+            {% endif %}
           </li>
           {% if request.path == '/' %}
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact Us</a>
+            <a class="nav-link" href="#contact">Contact</a>
           </li>
           {% endif %}
+          <li class="nav-item">
+            <a class="nav-link" href="/books">Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/devotionals">Devotionals</a>
+          </li>
           <li class="nav-item">
             <a href="/sermons" class="btn btn-primary ml-xl-4">Sermons</a>
           </li>
         </ul>
       </div>
     </nav>
+
     {% block content %} {% endblock %}
 
     <!-- page footer  -->

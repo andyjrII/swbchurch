@@ -465,7 +465,7 @@
 
 <!-- NEWS & EVENTS Section  -->
 <div
-  id="newsevents"
+  id="events"
   class="container-fluid wow fadeIn bg-dark text-light has-height-lg middle-items"
 >
   <h2 class="section-title my-5 text-center">NEWS & EVENTS</h2>
@@ -473,7 +473,7 @@
     {% for latest in latest_newsevents %}
     <div class="col-md-4 my-3 my-md-0">
       <div class="newsevents-card">
-        <h3 class="newsevents-title">{{latest.title}}</h3>
+        <h4 class="newsevents-title">{{latest.title}}</h4>
         <h6 class="newsevents-subtitle">{{latest.date_updated}}</h6>
         <div class="newsevents-body">
           <p>
