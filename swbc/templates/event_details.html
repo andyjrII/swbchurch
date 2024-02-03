@@ -44,7 +44,7 @@
   <h2 class="section-title my-5 text-center">LATEST EVENTS</h2>
   <div class="row justify-content-center">
     {% for news in latest_newsevents %}
-    <div class="col-md-3 my-3">
+    <div class="col-md-3">
       <div class="card bg-transparent border">
         <img
           src="{{news.feature_pic.url}}"
@@ -52,12 +52,12 @@
           class="rounded-0 mg-responsive other-news-img-top"
         />
         <div class="card-body">
-          <h5 class="pt20 pb20">{{news.title}}</h5>
-          <p class="text-center mb-4">
+          <h6 class="pt20 pb20">{{news.title}}</h6>
+          <p class="text-center mb-2">
             <span class="text-white">{{news.date_updated}}</span>
           </p>
           <p class="text-white">
-            <a href="{{news.id}}" class="btn btn-md btn-danger">Read</a>
+            <a href="{{news.id}}" class="btn btn-sm btn-danger">Read</a>
           </p>
         </div>
       </div>

@@ -7,68 +7,91 @@
 {% block content %}
 
 <!-- header -->
-<header id="news_events" class="news_header">
+<header id="news_events" class="news_header mb-5">
   <div class="overlay text-white text-center">
     <h1 class="display-2 font-weight-bold my-3">News & Events</h1>
   </div>
 </header>
 
-<div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
-  <div class="row justify-content-center">
-    {% for news in paginated_events %}
-    <div class="col-md-4 my-3">
-      <div class="card bg-transparent border">
-        <img
-          src="{{news.feature_pic.url}}"
-          alt="{{news.title}}"
-          class="rounded-0 mg-responsive news-img-top"
-        />
-        <div class="card-body">
-          <h5 class="text-center mb-4">
-            <span class="badge badge-primary">{{news.date_updated}}</span>
-          </h5>
-          <h4 class="pt20 pb20">{{news.title}}</h4>
-          <p class="text-white">
-            {{news.content|safe|truncatewords:15}}
-            <a href="details/{{news.id}}" class="badge badge-primary">More</a>
-          </p>
+<!-- SEARCH Section  -->
+<div
+  class="container-fluid search-overlay text-center text-light has-height-md middle-items pt-5"
+>
+  <div class="">
+    <form method="get">
+      <div class="row mb-5">
+        <div class="col-md-9 my-2">{{ form.title }}</div>
+        <div class="col-md-2 my-2">{{ form.year_published }}</div>
+        <div class="col-md-1 my-3">
+          <button type="submit" class="btn btn-lg btn-primary" id="rounded-btn">
+            SEARCH
+          </button>
         </div>
       </div>
+    </form>
+  </div>
+
+  <!-- Events Section -->
+  <div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
+    <div class="row justify-content-center">
+      {% for news in paginated_events %}
+      <div class="col-md-4 my-3">
+        <div class="card bg-transparent border">
+          <img
+            src="{{news.feature_pic.url}}"
+            alt="{{news.title}}"
+            class="rounded-0 mg-responsive news-img-top"
+          />
+          <div class="card-body">
+            <h5 class="text-center mb-4">
+              <span class="badge badge-primary">{{news.date_updated}}</span>
+            </h5>
+            <h4 class="mb-1">{{news.title}}</h4>
+            <p class="text-white">
+              {{news.content|safe|truncatewords:15}}
+              <a href="details/{{news.id}}" class="badge badge-primary">More</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
-</div>
 
-<div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
-  <div class="pagination">
-    <span class="step-links">
-      {% if paginated_events.has_previous %}
-      <a href="?page=1" class="btn btn-md btn-outline-primary">&laquo; First</a>
-      <a
-        href="?page={{ paginated_events.previous_page_number }}"
-        class="btn btn-md btn-outline-primary"
-        >Previous</a
-      >
-      {% endif %}
+  <!-- PAGINATION Section -->
+  <div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
+    <div class="pagination">
+      <span class="step-links">
+        {% if paginated_events.has_previous %}
+        <a href="?page=1" class="btn btn-md btn-outline-primary"
+          >&laquo; First</a
+        >
+        <a
+          href="?page={{ paginated_events.previous_page_number }}"
+          class="btn btn-md btn-outline-primary"
+          >Previous</a
+        >
+        {% endif %}
 
-      <span class="current">
-        Page {{ paginated_events.number }} of
-        {{paginated_events.paginator.num_pages }}.
+        <span class="current">
+          Page {{ paginated_events.number }} of
+          {{paginated_events.paginator.num_pages }}.
+        </span>
+
+        {% if paginated_events.has_next %}
+        <a
+          href="?page={{ paginated_events.next_page_number }}"
+          class="btn btn-md btn-outline-primary"
+          >Next</a
+        >
+        <a
+          href="?page={{ paginated_events.paginator.num_pages }}"
+          class="btn btn-md btn-outline-primary"
+          >Last &raquo;</a
+        >
+        {% endif %}
       </span>
-
-      {% if paginated_events.has_next %}
-      <a
-        href="?page={{ paginated_events.next_page_number }}"
-        class="btn btn-md btn-outline-primary"
-        >Next</a
-      >
-      <a
-        href="?page={{ paginated_events.paginator.num_pages }}"
-        class="btn btn-md btn-outline-primary"
-        >Last &raquo;</a
-      >
-      {% endif %}
-    </span>
+    </div>
   </div>
+  {% endblock %}
 </div>
-{% endblock %}

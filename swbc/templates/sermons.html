@@ -16,7 +16,7 @@
 <div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
   <div class="row justify-content-center">
     {% for sermon in paginated_sermons %}
-    <div class="col-sm-3 my-3">
+    <div class="col-sm-3">
       <div class="card bg-transparent border">
         <img
           src="{{sermon.feature_pic.url}}"
@@ -27,14 +27,14 @@
           <h6 class="text-center mb-2">
             <span class="badge badge-success">{{sermon.date_preached}}</span>
           </h6>
-          <h5 class="pt20 pb20">{{sermon.title}}</h5>
+          <h6 class="pt20 pb20">{{sermon.title}}</h6>
           <p class="text-white">
             <a
               href="{{sermon.link}}"
               download
               target="_blank"
               rel="noopener noreferrer"
-              ><button class="btn btn-sm btn-primary">Download Audio</button></a
+              ><button class="btn btn-sm btn-primary">Download</button></a
             >
           </p>
         </div>

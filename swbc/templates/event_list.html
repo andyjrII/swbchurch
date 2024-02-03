@@ -1,0 +1,12 @@
+{% block content %}
+<h1>News Events</h1>
+<form method="get">
+  {{ filter.form.as_p }}
+  <button type="submit">Filter</button>
+</form>
+<ul>
+  {% for news_event in filter.qs %}
+  <li>{{ news_event.title }} - {{ news_event.date_published }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

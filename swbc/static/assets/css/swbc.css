@@ -1985,24 +1985,34 @@ body {
   font-size: 25px;
 }
 
-.has-bg-overlay {
+.has-bg-overlay,
+.search-overlay {
   position: relative;
 }
 
-.has-bg-overlay:before {
+.has-bg-overlay:before,
+.search-overlay:before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(../imgs/donations-img.jpg) no-repeat center center fixed;
   background-size: cover;
   z-index: -1;
   opacity: 0.3;
 }
 
-.has-bg-overlay:after {
+.has-bg-overlay:before {
+  background: url(../imgs/donations-img.jpg) no-repeat center center fixed;
+}
+
+.search-overlay:before {
+  background: url(../imgs/search-img.jpg) no-repeat center center fixed;
+}
+
+.has-bg-overlay:after,
+.search-overlay:after {
   content: "";
   position: absolute;
   top: 0;
