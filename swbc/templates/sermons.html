@@ -7,73 +7,96 @@
 {% block content %}
 
 <!-- header -->
-<header id="sermons" class="sermons_header">
+<header id="sermons" class="sermons_header mb-5">
   <div class="overlay text-white text-center">
     <h1 class="display-2 font-weight-bold my-3">Download Sermons</h1>
   </div>
 </header>
 
-<div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
-  <div class="row justify-content-center">
-    {% for sermon in paginated_sermons %}
-    <div class="col-sm-3">
-      <div class="card bg-transparent border">
-        <img
-          src="{{sermon.feature_pic.url}}"
-          alt="{{sermon.title}}"
-          class="rounded-0 mg-responsive sermon-img-top"
-        />
-        <div class="card-body">
-          <h6 class="text-center mb-2">
-            <span class="badge badge-success">{{sermon.date_preached}}</span>
-          </h6>
-          <h6 class="pt20 pb20">{{sermon.title}}</h6>
-          <p class="text-white">
-            <a
-              href="{{sermon.link}}"
-              download
-              target="_blank"
-              rel="noopener noreferrer"
-              ><button class="btn btn-sm btn-primary">Download</button></a
-            >
-          </p>
+<!-- SEARCH Section  -->
+<div
+  class="container-fluid search-overlay text-center text-light has-height-md middle-items pt-5"
+>
+  <div class="">
+    <form method="get">
+      <div class="row mb-5">
+        <div class="col-md-9 my-2">{{ form.title }}</div>
+        <div class="col-md-2 my-2">{{ form.year }}</div>
+        <div class="col-md-1 my-3">
+          <button type="submit" class="btn btn-lg btn-primary" id="rounded-btn">
+            SEARCH
+          </button>
         </div>
       </div>
+    </form>
+  </div>
+
+  <!-- SERMONS Section -->
+  <div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
+    <div class="row justify-content-center">
+      {% for sermon in paginated_sermons %}
+      <div class="col-sm-3">
+        <div class="card bg-transparent border">
+          <img
+            src="{{sermon.feature_pic.url}}"
+            alt="{{sermon.title}}"
+            class="rounded-0 mg-responsive sermon-img-top"
+          />
+          <div class="card-body">
+            <h6 class="text-center mb-2">
+              <span class="badge badge-success">{{sermon.date_preached}}</span>
+            </h6>
+            <h6 class="pt20 pb20">{{sermon.title}}</h6>
+            <p class="text-white">
+              <a
+                href="{{sermon.link}}"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                ><button class="btn btn-sm btn-primary">Download</button></a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
-</div>
 
-<div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
-  <div class="pagination">
-    <span class="step-links">
-      {% if paginated_sermons.has_previous %}
-      <a href="?page=1" class="btn btn-md btn-outline-primary">&laquo; First</a>
-      <a
-        href="?page={{ paginated_sermons.previous_page_number }}"
-        class="btn btn-md btn-outline-primary"
-        >Previous</a
-      >
-      {% endif %}
+  <!-- PAGINATION Section -->
+  <div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
+    <div class="pagination">
+      <span class="step-links">
+        {% if paginated_sermons.has_previous %}
+        <a href="?page=1" class="btn btn-md btn-outline-primary"
+          >&laquo; First</a
+        >
+        <a
+          href="?page={{ paginated_sermons.previous_page_number }}"
+          class="btn btn-md btn-outline-primary"
+          >Previous</a
+        >
+        {% endif %}
 
-      <span class="current">
-        Page {{ paginated_sermons.number }} of
-        {{paginated_sermons.paginator.num_pages }}.
+        <span class="current">
+          Page {{ paginated_sermons.number }} of
+          {{paginated_sermons.paginator.num_pages }}.
+        </span>
+
+        {% if paginated_sermons.has_next %}
+        <a
+          href="?page={{ paginated_sermons.next_page_number }}"
+          class="btn btn-md btn-outline-primary"
+          >Next</a
+        >
+        <a
+          href="?page={{ paginated_sermons.paginator.num_pages }}"
+          class="btn btn-md btn-outline-primary"
+          >Last &raquo;</a
+        >
+        {% endif %}
       </span>
-
-      {% if paginated_sermons.has_next %}
-      <a
-        href="?page={{ paginated_sermons.next_page_number }}"
-        class="btn btn-md btn-outline-primary"
-        >Next</a
-      >
-      <a
-        href="?page={{ paginated_sermons.paginator.num_pages }}"
-        class="btn btn-md btn-outline-primary"
-        >Last &raquo;</a
-      >
-      {% endif %}
-    </span>
+    </div>
   </div>
+  {% endblock %}
 </div>
-{% endblock %}

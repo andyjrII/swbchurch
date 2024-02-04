@@ -14,16 +14,18 @@ class PlaceholderTextInput(forms.TextInput):
 
 class SearchForm(forms.Form):
     title = forms.CharField(
+        required=False,
         widget=PlaceholderTextInput(
             attrs={
                 "class": "form-control form-control-lg custom-form-control",
                 "placeholder": "TITLE",
             }
-        )
+        ),
     )
-    year_published = forms.IntegerField(
+    year = forms.IntegerField(
         min_value=2020,
         max_value=2100,
+        required=False,
         widget=PlaceholderTextInput(
             attrs={
                 "class": "form-control form-control-lg custom-form-control",
