@@ -1,5 +1,5 @@
 import django_filters
-from .models import Sermon, NewsEvent
+from .models import Sermon, NewsEvent, Devotional
 
 
 class SermonFilter(django_filters.FilterSet):
@@ -22,3 +22,12 @@ class NewsEventFilter(django_filters.FilterSet):
     class Meta:
         model = NewsEvent
         fields = ["title", "year_published"]
+
+
+class DevotionalFilter(django_filters.FilterSet):
+    title = django_filters.CharFilter(lookup_expr="icontains")
+    year = django_filters.NumberFilter(field_name="date__year", lookup_expr="exact")
+
+    class Meta:
+        model = Devotional
+        fields = ["title", "year"]

@@ -1,10 +1,9 @@
 from django.http import HttpResponse
 from django.template import loader
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.shortcuts import render
-from .filters import SermonFilter, NewsEventFilter
+from .filters import SermonFilter, NewsEventFilter, DevotionalFilter
 from .forms import SearchForm
-from .models import NewsEvent, Service, Sermon
+from .models import NewsEvent, Service, Sermon, Devotional
 
 
 def index(request):
@@ -36,11 +35,11 @@ def newsevents(request):
         "paginated_events": paginated_events,
         "news_filter": news_filter,
     }
-    template = loader.get_template("all_events.html")
+    template = loader.get_template("events.html")
     return HttpResponse(template.render(context, request))
 
 
-def details(request, id):
+def newsevent_details(request, id):
     # pylint: disable=no-member
     newsevent = NewsEvent.objects.get(id=id)
     latest_newsevents = NewsEvent.objects.order_by("-date_updated")[:4]
@@ -70,4 +69,37 @@ def sermons(request):
         "sermon_filter": sermon_filter,
     }
     template = loader.get_template("sermons.html")
+    return HttpResponse(template.render(context, request))
+
+
+def devotionals(request):
+    # pylint: disable=no-member
+    form = SearchForm(request.GET)
+    all_devotionals = Devotional.objects.all().order_by("-date")
+    devotional_filter = DevotionalFilter(request.GET, queryset=all_devotionals)
+    # pagination
+    items_per_page = 20
+    paginator = Paginator(devotional_filter.qs, items_per_page)
+    page = request.GET.get("page")
+    try:
+        paginated_devotionals = paginator.page(page)
+    except PageNotAnInteger:
+        paginated_devotionals = paginator.page(1)
+    except EmptyPage:
+        paginated_devotionals = paginator.page(paginator.num_pages)
+    context = {
+        "form": form,
+        "paginated_sermons": paginated_devotionals,
+        "devotional_filter": devotional_filter,
+    }
+    template = loader.get_template("devotionals.html")
+    return HttpResponse(template.render(context, request))
+
+
+def devotional_details(request, id):
+    # pylint: disable=no-member
+    devotional = Devotional.objects.get(id=id)
+    latest_devotionals = Devotional.objects.order_by("-date")[:4]
+    context = {"devotional": devotional, "latest_devotionals": latest_devotionals}
+    template = loader.get_template("devotional.html")
     return HttpResponse(template.render(context, request))

@@ -1,5 +1,4 @@
 - Page for downloading reports formats
-- Date and text search filter for events & sermons
 - work on error page
 - Payment Gateway
 - Add modal/popup to each image in the gallery to make then bigger
