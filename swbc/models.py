@@ -47,7 +47,7 @@ class Service(models.Model):
 
 class Devotional(models.Model):
     title = models.CharField(max_length=255, unique=True)
-    details = models.TextField(blank=True)
+    contents = models.TextField(blank=True)
     date = models.DateField(null=True)
     reference_text = models.TextField(blank=True)
     daily_bible_reading = models.CharField(max_length=255)

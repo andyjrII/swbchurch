@@ -1,12 +1,47 @@
+{% extends "master.html" %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- title -->
+{% block title %} SWBC | {{devotional.title}} {% endblock %}
+
+<!-- content -->
 {% block content %}
-<h1>Sermons</h1>
-<form method="get">
-  {{ filter.form.as_p }}
-  <button type="submit">Filter</button>
-</form>
-<ul>
-  {% for sermon in filter.qs %}
-  <li>{{ sermon.title }} - {{ sermon.date_preached }}</li>
-  {% endfor %}
-</ul>
+
+<!-- header -->
+<header id="devotional_head" class="news_post mb-5">
+  <div class="overlay text-white text-center">
+    <h1 class="display-4 font-weight-bold my-3">{{devotional.title}}</h1>
+    <h5>{{devotional.date}}</h5>
+  </div>
+</header>
+
+<!-- CONTENT Section  -->
+<div id="devotional_content" class="container-fluid wow fadeIn mb-5">
+  <div class="row">
+    <div class="col-md-1 text-justify empty-content"></div>
+    <div class="col-md-7 text-justify devotional-content">
+      {{devotional.contents|safe}}
+    </div>
+    <!-- Side content -->
+    <div class="col-md-3 has-height-lg side-content">
+      <h3 class="content-topic">Inspired Words <br />Daily Devotional</h3>
+      <p>{{devotional.date}}</p>
+      <h6>Topic:</h6>
+      <h4 class="font-weight-bold content-topic">{{devotional.title|upper}}</h4>
+      <div class="text-justify reference-text text-black mb-3">
+        <h6 class="text-center">Reference Text</h6>
+        {{devotional.reference_text|safe}}
+      </div>
+      <h6 class="content-topic">Daily Bible Reading</h6>
+      <p>{{devotional.daily_bible_reading}}</p>
+      <h6 class="content-topic">Teaching of the Week</h6>
+      <p>{{devotional.week_teaching}}</p>
+      <h6 class="content-topic">Confession</h6>
+      <div class="text-justify">{{devotional.confession}}</div>
+    </div>
+    <div class="col-md-1 text-justify empty-content"></div>
+  </div>
+</div>
 {% endblock %}

@@ -2106,3 +2106,36 @@ body {
   height: 75px;
   width: 75px;
 }
+
+#devotional_head {
+  background-image: url("../imgs/main-sermons.jpg");
+}
+
+.reference-text {
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgba(165, 101, 42, 0.8);
+}
+
+.devotional-content,
+.side-content {
+  font-size: larger;
+  padding: 30px;
+  background-color: #fffffff3;
+  color: #000000;
+}
+
+.devotional-content {
+  border-radius: 10px 0 0 10px;
+}
+.side-content {
+  border-radius: 0 10px 10px 0;
+}
+
+.content-topic {
+  color: #a52a2a;
+}
+
+.empty-content {
+  background-color: #343a40;
+}

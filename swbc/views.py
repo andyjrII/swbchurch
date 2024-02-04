@@ -44,7 +44,7 @@ def newsevent_details(request, id):
     newsevent = NewsEvent.objects.get(id=id)
     latest_newsevents = NewsEvent.objects.order_by("-date_updated")[:4]
     context = {"newsevent": newsevent, "latest_newsevents": latest_newsevents}
-    template = loader.get_template("event_details.html")
+    template = loader.get_template("event.html")
     return HttpResponse(template.render(context, request))
 
 
@@ -89,7 +89,7 @@ def devotionals(request):
         paginated_devotionals = paginator.page(paginator.num_pages)
     context = {
         "form": form,
-        "paginated_sermons": paginated_devotionals,
+        "paginated_devotionals": paginated_devotionals,
         "devotional_filter": devotional_filter,
     }
     template = loader.get_template("devotionals.html")
