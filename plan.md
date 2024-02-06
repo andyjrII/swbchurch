@@ -4,7 +4,6 @@
 - Add modal/popup to each image in the gallery to make then bigger
 - Find a way to put <pre> element for content details from DB
 - E-Book sales Section
-- Daily Devotional Section
 
 ###########################
 Admin login
