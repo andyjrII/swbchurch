@@ -32,25 +32,31 @@
   </div>
 
   <!-- Events Section -->
-  <div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
+  <div class="container-fluid bg-dark text-light py-5 wow fadeIn text-justify">
     <div class="row justify-content-center">
       {% for news in paginated_events %}
-      <div class="col-md-4 my-3">
-        <div class="card bg-transparent border">
-          <img
-            src="{{news.feature_pic.url}}"
-            alt="{{news.title}}"
-            class="rounded-0 mg-responsive news-img-top"
-          />
-          <div class="card-body">
-            <h5 class="text-center mb-4">
-              <span class="badge badge-primary">{{news.date_updated}}</span>
-            </h5>
-            <h4 class="mb-1">{{news.title}}</h4>
-            <p class="text-white">
-              {{news.content|safe|truncatewords:15}}
-              <a href="details/{{news.id}}" class="badge badge-primary">More</a>
-            </p>
+      <div class="card bg-transparent my-2 col-md-8">
+        <div class="row">
+          <div class="col-md-6 px-0">
+            <img
+              src="{{news.feature_pic.url}}"
+              alt="{{news.title}}"
+              class="rounded-start news-img-top img-fluid"
+            />
+          </div>
+          <div class="col-md-6">
+            <div class="card-body events">
+              <h5 class="card-title">{{news.title}}</h5>
+              <p class="card-text news_content">
+                {{news.content|safe|truncatewords:15}}
+              </p>
+              <p class="card-text">
+                <small class="text-muted">{{news.date_updated}}</small>
+              </p>
+              <a href="details/{{news.id}}" class="btn btn-sm btn-primary"
+                >Read More</a
+              >
+            </div>
           </div>
         </div>
       </div>

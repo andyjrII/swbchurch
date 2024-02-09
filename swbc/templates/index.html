@@ -393,10 +393,10 @@
       role="tabpanel"
       aria-labelledby="pills-profile-tab"
     >
-      <div class="row justify-content-center">
+      <div class="row">
         {% for service in services %}
-        <div class="col-md-3 my-3">
-          <div class="card bg-transparent border">
+        <div class="col-md-3">
+          <div class="card bg-transparent border my-3 my-md-0">
             <img
               src="{{service.feature_pic.url}}"
               alt="{{service.title}}"
