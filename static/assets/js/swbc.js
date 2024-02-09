@@ -20,3 +20,14 @@ $(document).ready(function () {
 });
 
 new WOW().init();
+
+function toggleOverlay(imageContainer) {
+  var overlay = imageContainer.querySelector(".large-overlay");
+  var isVisible = overlay.classList.contains("visible");
+
+  if (!isVisible) {
+    overlay.classList.add("visible");
+  } else {
+    overlay.classList.remove("visible");
+  }
+}

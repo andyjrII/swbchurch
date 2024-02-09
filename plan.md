@@ -1,7 +1,6 @@
 - Page for downloading reports formats
 - work on error page
 - Payment Gateway
-- Add modal/popup to each image in the gallery to make then bigger
 - Find a way to put <pre> element for content details from DB
 - E-Book sales Section
 

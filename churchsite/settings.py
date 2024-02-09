@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "swbc.apps.SwbcConfig",
+    "bookstore.apps.BookstoreConfig",
     "bootstrap5",
 ]
 
