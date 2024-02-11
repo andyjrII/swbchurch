@@ -1943,7 +1943,8 @@ body {
 .news_header .overlay,
 .sermons_header .overlay,
 .news_post .overlay,
-.service-modal .overlay {
+.service-modal .overlay,
+.book-modal .overlay {
   height: 100%;
   background: rgba(33, 37, 41, 0.85);
   display: -webkit-flex;
@@ -1964,11 +1965,6 @@ body {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-}
-
-.service-modal {
-  background-size: cover;
-  background-position: center;
 }
 
 .has-img-bg {
