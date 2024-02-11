@@ -10,7 +10,7 @@
     />
     <meta
       name="description"
-      content="Soul Winning Believers Church landing page."
+      content="Soul Winning Believers Church official website."
     />
     <meta name="author" content="NerdVille" />
     <link
@@ -65,22 +65,34 @@
           <li class="nav-item">
             <a class="nav-link" href="/">Home</a>
           </li>
-          {% if request.path == '/' %}
           <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
+            <a
+              class="nav-link {% if request.path != '/' %}disabled{% endif %}"
+              href="#about"
+              >About</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#gallery">Gallery</a>
+            <a
+              class="nav-link {% if request.path != '/' %}disabled{% endif %}"
+              href="#gallery"
+              >Gallery</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#donations">Donations</a>
+            <a
+              class="nav-link {% if request.path != '/' %}disabled{% endif %}"
+              href="#donations"
+              >Donations</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#services"
+            <a
+              class="nav-link {% if request.path != '/' %}disabled{% endif %}"
+              href="#services"
               >Services<span class="sr-only">(current)</span></a
             >
           </li>
-          {% endif %}
         </ul>
         <a class="navbar-brand m-auto" href="/">
           <img
@@ -98,11 +110,13 @@
             <a class="nav-link" href="/newsevents">Events</a>
             {% endif %}
           </li>
-          {% if request.path == '/' %}
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
+            <a
+              class="nav-link {% if request.path != '/' %}disabled{% endif %}"
+              href="#contact"
+              >Contact</a
+            >
           </li>
-          {% endif %}
           <li class="nav-item">
             <a class="nav-link" href="/books">Books</a>
           </li>
@@ -110,7 +124,7 @@
             <a class="nav-link" href="/devotionals">Devotionals</a>
           </li>
           <li class="nav-item">
-            <a href="/sermons" class="btn btn-primary ml-xl-4">Sermons</a>
+            <a href="/sermons" class="nav-link">Sermons</a>
           </li>
         </ul>
       </div>
