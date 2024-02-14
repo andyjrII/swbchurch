@@ -30,7 +30,7 @@
     </form>
   </div>
 
-  <!-- SERMONS Section -->
+  <!-- BOOKS Section -->
   <div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
     <div class="row justify-content-center">
       {% for book in paginated_books %}
@@ -112,30 +112,30 @@
   <div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
     <div class="pagination">
       <span class="step-links">
-        {% if paginated_sermons.has_previous %}
+        {% if paginated_books.has_previous %}
         <a href="?page=1" class="btn btn-md btn-outline-primary"
           >&laquo; First</a
         >
         <a
-          href="?page={{ paginated_sermons.previous_page_number }}"
+          href="?page={{ paginated_books.previous_page_number }}"
           class="btn btn-md btn-outline-primary"
           >Previous</a
         >
         {% endif %}
 
-        <span class="current">
-          Page {{ paginated_sermons.number }} of
-          {{paginated_sermons.paginator.num_pages }}.
+        <span class="current bg-primary p-2 rounded">
+          Page {{ paginated_books.number }} of
+          {{paginated_books.paginator.num_pages }}.
         </span>
 
-        {% if paginated_sermons.has_next %}
+        {% if paginated_books.has_next %}
         <a
-          href="?page={{ paginated_sermons.next_page_number }}"
+          href="?page={{ paginated_books.next_page_number }}"
           class="btn btn-md btn-outline-primary"
           >Next</a
         >
         <a
-          href="?page={{ paginated_sermons.paginator.num_pages }}"
+          href="?page={{ paginated_books.paginator.num_pages }}"
           class="btn btn-md btn-outline-primary"
           >Last &raquo;</a
         >

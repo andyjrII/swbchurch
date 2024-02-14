@@ -1,10 +1,10 @@
 from django.http import HttpResponse
 from django.template import loader
 from django.core.mail.message import EmailMessage
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import SearchForm
 from .models import Book
 from .filters import BookFilter
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def bookstore(request):

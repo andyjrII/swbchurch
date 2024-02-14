@@ -34,22 +34,22 @@
   </div>
 
   <!-- SERMONS Section -->
-  <div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
+  <div class="container-fluid bg-dark text-light py-5 text-justify wow fadeIn">
     <div class="row justify-content-center">
       {% for devotional in paginated_devotionals %}
-      <div class="col-sm-4">
+      <div class="col-lg-10">
         <div class="card bg-transparent border">
           <div class="card-body">
             <h6 class="pt20 pb20">{{devotional.title}}</h6>
-            <h6 class="text-center mb-2">
+            <h6 class="mb-2">
               <span class="badge badge-success">{{devotional.date}}</span>
             </h6>
             <p class="text-white">
-              {{devotional.contents|safe|truncatewords:15}}
-              <a href="details/{{devotional.id}}" class="badge badge-primary"
-                >More</a
-              >
+              {{devotional.contents|safe|truncatewords:30}}
             </p>
+            <a href="details/{{devotional.id}}" class="btn btn-primary"
+              >Read More</a
+            >
           </div>
         </div>
       </div>
@@ -72,7 +72,7 @@
         >
         {% endif %}
 
-        <span class="current">
+        <span class="current bg-primary p-2 rounded">
           Page {{ paginated_devotionals.number }} of
           {{paginated_devotionals.paginator.num_pages }}.
         </span>

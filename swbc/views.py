@@ -78,7 +78,7 @@ def devotionals(request):
     all_devotionals = Devotional.objects.all().order_by("-date")
     devotional_filter = DevotionalFilter(request.GET, queryset=all_devotionals)
     # pagination
-    items_per_page = 20
+    items_per_page = 10
     paginator = Paginator(devotional_filter.qs, items_per_page)
     page = request.GET.get("page")
     try:
