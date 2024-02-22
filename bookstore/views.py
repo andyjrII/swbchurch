@@ -1,10 +1,12 @@
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 from django.template import loader
 from django.core.mail.message import EmailMessage
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import SearchForm
 from .models import Book
 from .filters import BookFilter
+from django.contrib import messages
 
 
 def bookstore(request):
@@ -34,7 +36,7 @@ def bookstore(request):
 def send_book_via_email(book, user_email):
     subject = f"Your purchased book: {book.title}"
     message = "Thank you for your purchase! Find attached your book file."
-    from_email = "ajsly87@gmail.com"  # Replace with your email address
+    from_email = "your_email@example.com"  # Replace with your email address
 
     # Create an EmailMessage instance
     email = EmailMessage(subject, message, from_email, [user_email])
@@ -47,3 +49,26 @@ def send_book_via_email(book, user_email):
 
     # Send the email
     email.send()
+
+
+def purchase_book(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    if request.method == "POST":
+        form = PurchaseForm(request.POST)
+        if form.is_valid():
+            user_email = form.cleaned_data["email"]
+
+            # Implement payment processing logic here
+
+            # Send the purchased book to the user's email
+            send_book_via_email(book, user_email)
+
+            # Display a success message
+            messages.success(
+                request, "Purchase successful! Check your email for the download link."
+            )
+
+            return redirect("book_detail", book_id=book.id)
+    else:
+        form = PurchaseForm()
+    return render(request, "books/purchase_book.html", {"form": form, "book": book})

@@ -1,6 +1,4 @@
-- Page for downloading reports formats
 - work on error page
-- Payment Gateway
 - Find a way to put <pre> element for content details from DB
 - E-Book sales Section
 

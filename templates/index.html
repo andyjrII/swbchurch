@@ -350,44 +350,55 @@
 >
   <div class="">
     <h2 class="section-title mb-5">DONATIONS</h2>
-    <div class="row mb-5">
-      <div class="col-sm-6 col-md-3 col-xs-12 my-2">
-        <input
-          type="text"
-          id="payment"
-          class="form-control form-control-lg custom-form-control"
-          placeholder="NAME"
-        />
+    <form id="donationForm">
+      <div class="row mb-5">
+        <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+          <input
+            type="text"
+            id="donor"
+            class="form-control form-control-lg custom-form-control"
+            placeholder="NAME"
+            required
+          />
+        </div>
+        <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+          <input
+            type="email"
+            id="donor-email"
+            class="form-control form-control-lg custom-form-control"
+            placeholder="EMAIL"
+            required
+          />
+        </div>
+        <div class="col-sm-6 col-md-2 col-xs-12 my-2">
+          <input
+            type="number"
+            id="donation-amount"
+            class="form-control form-control-lg custom-form-control"
+            placeholder="AMOUNT"
+            min="100"
+            required
+          />
+        </div>
+        <div class="col-sm-6 col-md-4 col-xs-12 my-2">
+          <input
+            type="text"
+            id="donation-description"
+            class="form-control form-control-lg custom-form-control"
+            placeholder="DESCRIPTION"
+            required
+          />
+        </div>
       </div>
-      <div class="col-sm-6 col-md-3 col-xs-12 my-2">
-        <input
-          type="email"
-          id="payment"
-          class="form-control form-control-lg custom-form-control"
-          placeholder="EMAIL"
-        />
-      </div>
-      <div class="col-sm-6 col-md-2 col-xs-12 my-2">
-        <input
-          type="number"
-          id="payment"
-          class="form-control form-control-lg custom-form-control"
-          placeholder="AMOUNT"
-          min="0"
-        />
-      </div>
-      <div class="col-sm-6 col-md-4 col-xs-12 my-2">
-        <input
-          type="text"
-          id="payment"
-          class="form-control form-control-lg custom-form-control"
-          placeholder="DESCRIPTION"
-        />
-      </div>
-    </div>
-    <a href="#" class="btn btn-lg btn-primary" id="rounded-btn"
-      >MAKE A DONATION</a
-    >
+      <button
+        type="submit"
+        class="btn btn-lg btn-primary"
+        id="rounded-btn"
+        onclick="donateWithPaystack()"
+      >
+        MAKE A DONATION
+      </button>
+    </form>
   </div>
 </div>
 
