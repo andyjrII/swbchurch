@@ -26,6 +26,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "swbc.apps.SwbcConfig",
     "bookstore.apps.BookstoreConfig",
+    "devotionals.apps.DevotionalsConfig",
+    "sermons.apps.SermonsConfig",
+    "newsevents.apps.NewseventsConfig",
     "bootstrap5",
 ]
 
