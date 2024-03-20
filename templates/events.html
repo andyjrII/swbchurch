@@ -47,9 +47,7 @@
           <div class="col-md-6">
             <div class="card-body events">
               <h5 class="card-title">{{news.title}}</h5>
-              <p class="card-text news_content">
-                {{news.content|safe|truncatewords:15}}
-              </p>
+              <p class="card-text">{{news.content|safe|truncatewords:20}}</p>
               <p class="card-text">
                 <small class="text-muted">{{news.date_updated}}</small>
               </p>

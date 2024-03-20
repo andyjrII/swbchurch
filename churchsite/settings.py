@@ -66,6 +66,19 @@ WSGI_APPLICATION = "churchsite.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# ElephantSQL: postgres://kamgswms:4koBZ-spWN_FRVERC7V0uvTsC36VTnt9@surus.db.elephantsql.com/kamgswms
+# DATABASES = {
+#    "default": {
+#        "ENGINE": "django.db.backends.postgresql",
+#        "NAME": "kamgswms",
+#        "USER": "kamgswms",
+#        "PASSWORD": "4koBZ-spWN_FRVERC7V0uvTsC36VTnt9",
+#        "HOST": "surus.db.elephantsql.com",
+#        "PORT": "5432",
+#    }
+# }
+
+# Local
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",

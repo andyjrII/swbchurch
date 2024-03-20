@@ -1977,10 +1977,6 @@ body {
   background-size: cover;
 }
 
-.news_content {
-  font-size: 25px;
-}
-
 .has-bg-overlay,
 .search-overlay {
   position: relative;
