@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
-from .models import NewsEvent, Service
+from .models import Service
+from newsevents.models import NewsEvent
 
 
 def index(request):
