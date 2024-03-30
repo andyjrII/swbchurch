@@ -559,7 +559,7 @@
           <div class="modal-dialog modal-dialog-scrollable">
             <div
               class="modal-content service-modal"
-              style="background-image: url('{{service.feature_pic.url}}')"
+              style="background-image: url('{{service.feature_pic.url}}'); background-size: cover;"
             >
               <div class="overlay">
                 <div class="modal-header">
@@ -607,7 +607,7 @@
         <h6 class="newsevents-subtitle">{{latest.date_updated}}</h6>
         <div class="newsevents-body">
           <p>
-            {{latest.content|safe|truncatewords:10}}
+            {{latest.content|safe|truncatewords:20}}
             <a
               href="newsevents/details/{{latest.id}}"
               class="badge badge-primary"
