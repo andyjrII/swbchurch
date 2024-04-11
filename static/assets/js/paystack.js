@@ -1,5 +1,5 @@
-/* 
- * Buy Book from bookstore 
+/*
+ * Buy Book from bookstore
  */
 const paymentForms = document.querySelectorAll(".paymentForm"); // Get all elements with the class 'paymentForm'
 
@@ -48,31 +48,85 @@ function payWithPaystack(book_id) {
         " Payment complete! Reference: " +
         response.reference;
       alert(message);
-      sendTransactionIdToBackend(response.reference);
+      let email = document.getElementById("email-address" + book_id).value;
+      sendTransactionIdToBackend(response.reference, book_id, email);
     },
   });
 
   handler.openIframe();
 }
 
-// Send transaction ID to backend
-function sendTransactionIdToBackend(transactionId) {
-    // Make an AJAX request to your Django backend
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/handle-payment-success/', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log('Transaction ID sent to backend successfully');
-        }
-    };
-    var data = JSON.stringify({ transaction_id: transactionId });
-    xhr.send(data);
+// Frontend JavaScript code using jQuery for AJAX
+function sendTransactionIdToBackend(transactionId, bookId, email) {
+  // Get the CSRF token from the cookie
+  var csrftoken = getCSRFToken();
+
+  // Send the AJAX request
+  sendAjaxRequest(
+    "/books/handle_payment_success/",
+    "POST",
+    {
+      transaction_id: transactionId,
+      book_id: bookId,
+      buyer_email: email,
+    },
+    csrftoken,
+    function (response) {
+      if (response.success) {
+        console.log("Transaction ID sent to backend successfully");
+      } else {
+        console.error(
+          "Failed to send transaction ID to backend:",
+          response.error
+        );
+      }
+    },
+    function (xhr, status, error) {
+      console.error("AJAX request failed:", error);
+    }
+  );
 }
 
+// Function to retrieve CSRF token from cookies
+function getCSRFToken() {
+  var csrftoken = null;
+  var cookies = document.cookie.split(";");
 
-/* 
- *  Make donation 
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
+    if (cookie.startsWith("csrftoken=")) {
+      csrftoken = cookie.substring("csrftoken=".length);
+      break;
+    }
+  }
+
+  return csrftoken;
+}
+
+// Function to send AJAX request with CSRF token included
+function sendAjaxRequest(
+  url,
+  method,
+  data,
+  csrftoken,
+  successCallback,
+  errorCallback
+) {
+  $.ajax({
+    url: url,
+    method: method,
+    dataType: "json",
+    data: data,
+    headers: {
+      "X-CSRFToken": csrftoken,
+    },
+    success: successCallback,
+    error: errorCallback,
+  });
+}
+
+/*
+ *  Make donation
  */
 const donationForm = document.getElementById("donationForm");
 donationForm.addEventListener("submit", donateWithPaystack, false);

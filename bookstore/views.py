@@ -1,12 +1,11 @@
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404
+from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from django.core.mail.message import EmailMessage
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import SearchForm
 from .models import Book
 from .filters import BookFilter
-from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
 
 
 def bookstore(request):
@@ -32,43 +31,42 @@ def bookstore(request):
     template = loader.get_template("books.html")
     return HttpResponse(template.render(context, request))
 
+@csrf_exempt
+def handle_payment_success(request):
+    if request.method == 'POST': 
+    #and request.headers.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+        # Retrieve data from the AJAX request
+        transaction_id = request.POST.get('transaction_id')
+        buyer_email = request.POST.get('buyer_email')
+        book_id = request.POST.get('book_id')
+        
+        try:
+            # Get the Book object using the book_id
+            book = Book.objects.get(pk=book_id)
+            # Retrieve the path of the book file
+            book_file_path = book.book_file.path
+            
+            send_book_via_email(book_file_path, buyer_email)
+            
+            return JsonResponse({'success': True, 'book_file_path': book_file_path})
+        except Book.DoesNotExist:
+            return JsonResponse({'success': False, 'error': 'Book not found'})
+    else:
+        return JsonResponse({'success': False, 'error': 'Invalid request'})
 
-def send_book_via_email(book, user_email):
+
+def send_book_via_email(book, buyer_email):
     subject = f"Your purchased book: {book.title}"
     message = "Thank you for your purchase! Find attached your book file."
-    from_email = "your_email@example.com"  # Replace with your email address
+    from_email = "ajsly87@gmail.com"
 
     # Create an EmailMessage instance
-    email = EmailMessage(subject, message, from_email, [user_email])
+    email = EmailMessage(subject, message, from_email, [buyer_email])
 
     # Attach the book file to the email
-    book_file_path = book.book_file.path
     email.attach_file(
-        book_file_path, "application/pdf"
+        book, "application/pdf"
     )  # Adjust the MIME type based on your file type
 
     # Send the email
     email.send()
-
-
-def purchase_book(request, book_id):
-    book = get_object_or_404(Book, pk=book_id)
-    if request.method == "POST":
-        form = PurchaseForm(request.POST)
-        if form.is_valid():
-            user_email = form.cleaned_data["email"]
-
-            # Implement payment processing logic here
-
-            # Send the purchased book to the user's email
-            send_book_via_email(book, user_email)
-
-            # Display a success message
-            messages.success(
-                request, "Purchase successful! Check your email for the download link."
-            )
-
-            return redirect("book_detail", book_id=book.id)
-    else:
-        form = PurchaseForm()
-    return render(request, "books/purchase_book.html", {"form": form, "book": book})
