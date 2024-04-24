@@ -33,8 +33,8 @@ def bookstore(request):
 
 @csrf_exempt
 def handle_payment_success(request):
-    if request.method == 'POST': 
-    #and request.headers.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+    if request.method == 'POST':
+        #and request.headers.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
         # Retrieve data from the AJAX request
         transaction_id = request.POST.get('transaction_id')
         buyer_email = request.POST.get('buyer_email')
@@ -62,7 +62,7 @@ def send_book_via_email(book, buyer_email):
 
     # Create an EmailMessage instance
     email = EmailMessage(subject, message, from_email, [buyer_email])
-
+    
     # Attach the book file to the email
     email.attach_file(
         book, "application/pdf"

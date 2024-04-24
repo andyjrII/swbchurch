@@ -142,5 +142,5 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "ajsly87@gmail.com"
-EMAIL_HOST_PASSWORD = "SlyF0x87"
+EMAIL_HOST_PASSWORD = "gpsmpzbhweawyhgp"
 DEFAULT_FROM_EMAIL = "ajsly87@gmail.com"
