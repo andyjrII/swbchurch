@@ -45,7 +45,7 @@ function payWithPaystack(book_id) {
     callback: function (response) {
       let message =
         document.getElementById('description' + book_id).value +
-        ' Payment complete! Reference: ' +
+        ' Payment complete! Check your e-mail... Reference: ' +
         response.reference;
       alert(message);
       let email = document.getElementById('email-address' + book_id).value;

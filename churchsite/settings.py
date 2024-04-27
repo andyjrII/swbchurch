@@ -67,28 +67,29 @@ WSGI_APPLICATION = "churchsite.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 # ElephantSQL: postgres://kamgswms:4koBZ-spWN_FRVERC7V0uvTsC36VTnt9@surus.db.elephantsql.com/kamgswms
-# DATABASES = {
-#    "default": {
-#        "ENGINE": "django.db.backends.postgresql",
-#        "NAME": "kamgswms",
-#        "USER": "kamgswms",
-#        "PASSWORD": "4koBZ-spWN_FRVERC7V0uvTsC36VTnt9",
-#        "HOST": "surus.db.elephantsql.com",
-#        "PORT": "5432",
-#    }
-# }
+# Aiven: postgres://avnadmin:AVNS_LC52dHO3N8b4Ny3-FQP@pg-django-andy-django.e.aivencloud.com:17237/defaultdb?sslmode=require
+DATABASES = {
+   "default": {
+       "ENGINE": "django.db.backends.postgresql",
+       "NAME": "defaultdb",
+       "USER": "avnadmin",
+       "PASSWORD": "AVNS_LC52dHO3N8b4Ny3-FQP",
+       "HOST": "pg-django-andy-django.e.aivencloud.com",
+       "PORT": "17237",
+   }
+}
 
 # Local
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "swbc",
-        "USER": "postgres",
-        "PASSWORD": "enehizena",
-        "HOST": "localhost",
-        "PORT": "5432",
-    }
-}
+#DATABASES = {
+#    "default": {
+#        "ENGINE": "django.db.backends.postgresql",
+#        "NAME": "swbc",
+#        "USER": "postgres",
+#        "PASSWORD": "enehizena",
+#        "HOST": "localhost",
+#        "PORT": "5432",
+#    }
+#}
 
 
 # Password validation
