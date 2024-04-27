@@ -1,4 +1,9 @@
+import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables from .env
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -8,10 +13,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure--gr@5r+%%gozhcqpn5-d@x0yf93y3^1k4gy9-7oc&7dxp)6g4+"
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = ["*"]
 
@@ -66,14 +71,12 @@ WSGI_APPLICATION = "churchsite.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# ElephantSQL: postgres://kamgswms:4koBZ-spWN_FRVERC7V0uvTsC36VTnt9@surus.db.elephantsql.com/kamgswms
-# Aiven: postgres://avnadmin:AVNS_LC52dHO3N8b4Ny3-FQP@pg-django-andy-django.e.aivencloud.com:17237/defaultdb?sslmode=require
 DATABASES = {
    "default": {
        "ENGINE": "django.db.backends.postgresql",
        "NAME": "defaultdb",
        "USER": "avnadmin",
-       "PASSWORD": "AVNS_LC52dHO3N8b4Ny3-FQP",
+       "PASSWORD": os.getenv('DATABASE_PASSWORD'),
        "HOST": "pg-django-andy-django.e.aivencloud.com",
        "PORT": "17237",
    }
@@ -142,6 +145,6 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "ajsly87@gmail.com"
-EMAIL_HOST_PASSWORD = "gpsmpzbhweawyhgp"
-DEFAULT_FROM_EMAIL = "ajsly87@gmail.com"
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
