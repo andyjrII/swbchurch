@@ -78,7 +78,7 @@ DATABASES = {
        "USER": "avnadmin",
        "PASSWORD": os.getenv('DATABASE_PASSWORD'),
        "HOST": "pg-django-andy-django.e.aivencloud.com",
-       "PORT": "17237",
+       "PORT": os.getenv('DATABASE_PORT'),
    }
 }
 
