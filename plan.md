@@ -1,3 +1,6 @@
+Add church telegram channel
+fix sizes on mobile screens
+
 To Deploy your site:
 
 1. Install white noise
@@ -8,12 +11,6 @@ To Deploy your site:
 
 3. Install gunicorn
    pip install gunicorn
-
-4. Downgrade Django version to 3
-   pip install django==3.2.1
-
-5. Find a compatible django filter version
-   pip install django-filter==2.3
 
    ###########################
    Admin login
