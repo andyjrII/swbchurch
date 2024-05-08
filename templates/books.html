@@ -7,7 +7,7 @@
 {% block content %}
 
 <!-- header -->
-<header id="sermons" class="sermons_header mb-5">
+<header id="books" class="books_header mb-5">
   <div class="overlay text-white text-center">
     <h1 class="display-2 font-weight-bold my-3">Bookstore</h1>
   </div>
@@ -34,7 +34,7 @@
   <div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
     <div class="row justify-content-center">
       {% for book in paginated_books %}
-      <div class="col-sm-3">
+      <div class="col-sm-3 mb-2">
         <div class="card bg-transparent border">
           <img
             src="{{book.cover_image.url}}"
