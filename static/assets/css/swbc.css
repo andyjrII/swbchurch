@@ -2194,3 +2194,15 @@ body {
     font-size: 30px;
   }
 }
+
+/* Styles for hiding the menu initially */
+#navbarSupportedContent {
+  display: none;
+}
+
+/* Styles for showing the menu on small screens */
+@media (max-width: 768px) {
+  #navbarSupportedContent {
+    display: block;
+  }
+}
