@@ -2001,10 +2001,6 @@ body {
   opacity: 0.3;
 }
 
-.has-bg-overlay:before {
-  background: url(../imgs/donations-img.jpg) no-repeat center center fixed;
-}
-
 .search-overlay:before {
   background: url(../imgs/search-img.jpg) no-repeat center center fixed;
 }
@@ -2126,6 +2122,7 @@ body {
 #nerdified {
   height: 75px;
   width: 75px;
+  border-radius: 50%;
 }
 
 #devotional_head {
