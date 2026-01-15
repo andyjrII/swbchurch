@@ -19,10 +19,11 @@
 >
   <div class="">
     <form method="get">
-      <div class="row mb-5">
-        <div class="col-md-11 my-2">{{ form.title }}</div>
-        <div class="col-md-1 my-3">
-          <button type="submit" class="btn btn-lg btn-primary" id="rounded-btn">
+      <div class="row mb-5 align-items-center justify-content-center">
+        <div class="col-md-4 col-sm-6 my-2">{{ form.title }}</div>
+        <div class="col-md-4 col-sm-6 my-2">{{ form.author }}</div>
+        <div class="col-md-2 col-sm-8 my-2">
+          <button type="submit" class="btn btn-primary w-100" id="rounded-btn" style="font-size: 14px; font-weight: 600; padding: 10px 20px; height: 100%;">
             SEARCH
           </button>
         </div>
@@ -55,7 +56,7 @@
 
       <!-- Book Description Modal -->
       <div
-        class="modal fade"
+        class="modal fade book-modal-wrapper"
         id="book_description{{book.id}}"
         tabindex="-1"
         aria-labelledby="book_descriptionLabel"
@@ -95,7 +96,7 @@
 
       <!-- Book Purchase Modal -->
       <div
-        class="modal fade"
+        class="modal fade book-modal-wrapper"
         id="book_purchase{{book.id}}"
         tabindex="-1"
         aria-labelledby="book_purchaseLabel"

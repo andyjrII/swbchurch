@@ -11,7 +11,10 @@ from django.views.decorators.csrf import csrf_exempt
 
 def bookstore(request):
     # pylint: disable=no-member
-    form = SearchForm(request.GET)
+    # Get unique authors from books
+    authors = Book.objects.values_list('author', flat=True).distinct().order_by('author')
+    
+    form = SearchForm(request.GET, authors=authors)
     all_books = Book.objects.all().order_by("-date_updated")
     books_filter = BookFilter(request.GET, queryset=all_books)
     # pagination

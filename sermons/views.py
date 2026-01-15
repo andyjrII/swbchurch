@@ -9,7 +9,10 @@ from .models import Sermon
 
 def sermons(request):
     # pylint: disable=no-member
-    form = SearchForm(request.GET)
+    # Get unique authors from sermons
+    authors = Sermon.objects.values_list('author', flat=True).distinct().order_by('author')
+    
+    form = SearchForm(request.GET, authors=authors)
     all_sermons = Sermon.objects.all().order_by("-date_preached")
     sermon_filter = SermonFilter(request.GET, queryset=all_sermons)
     # pagination

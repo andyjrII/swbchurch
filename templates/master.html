@@ -131,22 +131,11 @@
     {% block content %} {% endblock %}
 
     <!-- page footer  -->
-    <div class="bg-dark text-light text-center border-top wow fadeIn">
+    <div class="bg-dark text-light text-center border-top wow fadeIn" style="padding: 30px 0;">
       <p class="mb-0">
         <span class="text-muted small">
-          &copy; Copyright
-          <script>
-            document.write(new Date().getFullYear());
-          </script>
-          , Made by
+          &copy; <script>document.write(new Date().getFullYear());</script> — A product by Videti Labs.
         </span>
-        <a href="https://www.facebook.com/nerdifiedIT">
-          <img
-            src="{% static 'assets/imgs/nerdified.png' %}"
-            alt="Nerdified"
-            id="nerdified"
-          />
-        </a>
       </p>
     </div>
     <!-- end of page footer -->

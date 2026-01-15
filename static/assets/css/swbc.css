@@ -1827,6 +1827,34 @@ body {
   background: rgba(52, 58, 64, 0.2);
 }
 
+/* Select dropdown styling */
+select.custom-form-control {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 35px;
+}
+
+select.custom-form-control option {
+  background: #343a40;
+  color: #fff;
+}
+
+select.custom-form-control:focus {
+  border-color: #ff214f;
+  color: #fff;
+  background-color: rgba(52, 58, 64, 0.2);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ff214f' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  outline: none;
+}
+
 .navbar {
   -webkit-transition: all 0.3s linear 0s;
   transition: all 0.3s linear 0s;
@@ -1971,6 +1999,20 @@ body {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+
+/* Book modal wider and close button red */
+.book-modal-wrapper .modal-dialog-scrollable {
+  max-width: 650px; /* Make book modals wider than default */
+}
+
+.service-modal .modal-header .btn-close {
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+  opacity: 1;
+}
+
+.service-modal .modal-header .btn-close:hover {
+  opacity: 0.8;
 }
 
 .has-img-bg {
@@ -2490,8 +2532,8 @@ body {
 /* Books Grid Design - Fresh Concept */
 .bookstore-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 20px;
   padding: 30px 50px;
   max-width: 1400px;
   margin: 0 auto;
@@ -2550,14 +2592,14 @@ body {
 }
 
 .book-action-btn {
-  width: 45px;
-  height: 45px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
   color: #ffffff;
@@ -2589,27 +2631,27 @@ body {
 }
 
 .book-name {
-  font-size: 13px;
+  font-size: 10px;
   font-weight: 600;
   color: #ffffff;
-  margin: 0 0 6px 0;
+  margin: 0 0 5px 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
 .book-writer {
-  font-size: 11px;
+  font-size: 9px;
   color: #aaaaaa;
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .book-price {
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 700;
   color: #34d399;
   margin: 0;

@@ -22,3 +22,18 @@ class SearchForm(forms.Form):
             }
         ),
     )
+    
+    def __init__(self, *args, **kwargs):
+        authors = kwargs.pop('authors', [])
+        super().__init__(*args, **kwargs)
+        
+        author_choices = [('', 'AUTHOR')] + [(author, author) for author in authors]
+        self.fields['author'] = forms.ChoiceField(
+            required=False,
+            choices=author_choices,
+            widget=forms.Select(
+                attrs={
+                    "class": "form-control form-control-lg custom-form-control",
+                }
+            ),
+        )
