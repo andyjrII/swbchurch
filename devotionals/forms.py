@@ -26,10 +26,12 @@ class SearchForm(forms.Form):
         min_value=2020,
         max_value=2100,
         required=False,
-        widget=PlaceholderTextInput(
+        widget=forms.NumberInput(
             attrs={
                 "class": "form-control form-control-lg custom-form-control",
                 "placeholder": "YEAR",
+                "min": "2020",
+                "max": "2100",
             }
         ),
     )

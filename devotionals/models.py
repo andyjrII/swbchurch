@@ -6,8 +6,8 @@ class Devotional(models.Model):
     contents = models.TextField(blank=True)
     date = models.DateField(null=True)
     reference_text = models.TextField(blank=True)
-    daily_bible_reading = models.CharField(max_length=255)
-    week_teaching = models.CharField(max_length=255)
+    daily_bible_reading = models.CharField(max_length=255, blank=True)
+    week_teaching = models.CharField(max_length=255, blank=True)
     confession = models.TextField(blank=True)
 
     unique_together = [title, date]

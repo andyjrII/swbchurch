@@ -1,4 +1,5 @@
 {% extends "master.html" %}
+{% load static %}
 
 <!-- title -->
 {% block title %} SWBC | Daily Devotionals {% endblock %}
@@ -7,7 +8,7 @@
 {% block content %}
 
 <!-- header -->
-<header id="sermons" class="sermons_header mb-5">
+<header id="devotionals" class="sermons_header mb-5">
   <div class="overlay text-white text-center">
     <h1 class="display-2 font-weight-bold my-3">Daily Devotionals</h1>
   </div>
@@ -19,11 +20,11 @@
 >
   <div class="">
     <form method="get">
-      <div class="row mb-5">
-        <div class="col-md-9 my-2">{{ form.title }}</div>
-        <div class="col-md-2 my-2">{{ form.year }}</div>
-        <div class="col-md-1 my-3">
-          <button type="submit" class="btn btn-lg btn-primary" id="rounded-btn">
+      <div class="row mb-5 align-items-center justify-content-center">
+        <div class="col-md-5 col-sm-6 my-2">{{ form.title }}</div>
+        <div class="col-md-3 col-sm-4 my-2">{{ form.year }}</div>
+        <div class="col-md-2 col-sm-8 my-2">
+          <button type="submit" class="btn btn-primary w-100" id="rounded-btn" style="font-size: 14px; font-weight: 600; padding: 10px 20px; height: 100%;">
             SEARCH
           </button>
         </div>
@@ -31,64 +32,42 @@
     </form>
   </div>
 
-  <!-- SERMONS Section -->
-  <div class="container-fluid bg-dark text-light py-5 text-justify wow fadeIn">
-    <div class="row justify-content-center">
-      {% for devotional in paginated_devotionals %}
-      <div class="col-md-5">
-        <div class="card bg-transparent border">
-          <div class="card-body">
-            <h6 class="pt20 pb20">{{devotional.title}}</h6>
-            <h6 class="mb-2">
-              <span class="badge badge-success">{{devotional.date}}</span>
-            </h6>
-            <p class="text-white">
-              {{devotional.contents|safe|truncatewords:30}}
-            </p>
-            <a href="details/{{devotional.id}}" class="btn btn-primary"
-              >Read More</a
-            >
-          </div>
+  <!-- DEVOTIONALS Section -->
+  <div class="container-fluid bg-dark text-light py-4">
+    <div class="devotional-showcase">
+      <h3 class="showcase-header">All Devotionals</h3>
+      
+      <div class="showcase-wrapper">
+        <div class="devotional-grid">
+          {% for devotional in paginated_devotionals %}
+          <article class="devotional-card">
+            <div class="devotional-content">
+              <div class="devotional-header">
+                <h4 class="devotional-title">{{devotional.title}}</h4>
+                {% if devotional.date %}
+                <time class="devotional-date">{{devotional.date|date:"M. d, Y"}}</time>
+                {% endif %}
+              </div>
+              <div class="devotional-excerpt">
+                <p>{{devotional.contents|safe|truncatewords:25}}</p>
+              </div>
+              <div class="devotional-action">
+                <a href="details/{{devotional.id}}" class="devotional-btn">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </article>
+          {% endfor %}
         </div>
       </div>
-      {% endfor %}
     </div>
   </div>
 
   <!-- PAGINATION Section -->
-  <div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
-    <div class="pagination">
-      <span class="step-links">
-        {% if paginated_devotionals.has_previous %}
-        <a href="?page=1" class="btn btn-md btn-outline-primary"
-          >&laquo; First</a
-        >
-        <a
-          href="?page={{ paginated_devotionals.previous_page_number }}"
-          class="btn btn-md btn-outline-primary"
-          >Previous</a
-        >
-        {% endif %}
+  {% with paginated_items=paginated_devotionals %}
+    {% include 'partials/pagination.html' %}
+  {% endwith %}
 
-        <span class="current bg-primary p-2 rounded">
-          Page {{ paginated_devotionals.number }} of
-          {{paginated_devotionals.paginator.num_pages }}.
-        </span>
-
-        {% if paginated_devotionals.has_next %}
-        <a
-          href="?page={{ paginated_devotionals.next_page_number }}"
-          class="btn btn-md btn-outline-primary"
-          >Next</a
-        >
-        <a
-          href="?page={{ paginated_devotionals.paginator.num_pages }}"
-          class="btn btn-md btn-outline-primary"
-          >Last &raquo;</a
-        >
-        {% endif %}
-      </span>
-    </div>
-  </div>
-  {% endblock %}
+{% endblock %}
 </div>
