@@ -2693,3 +2693,144 @@ select.custom-form-control:focus {
     display: block;
   }
 }
+
+/* Services Carousel Styles */
+.services-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 60px;
+}
+
+.services-carousel-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  max-width: 1200px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.services-carousel-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.services-carousel {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+}
+
+.service-card-item {
+  flex: 0 0 calc(22% - 15px);
+  min-width: calc(22% - 15px);
+  max-width: calc(22% - 15px);
+}
+
+.service-image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #ffffff;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.carousel-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-nav-prev {
+  left: 10px;
+}
+
+.carousel-nav-next {
+  right: 10px;
+}
+
+.carousel-nav-btn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Responsive adjustments for services carousel */
+@media (max-width: 992px) {
+  .services-carousel-wrapper {
+    padding: 0 50px;
+  }
+  
+  .service-card-item {
+    flex: 0 0 calc(30% - 14px);
+    min-width: calc(30% - 14px);
+    max-width: calc(30% - 14px);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-carousel-wrapper {
+    padding: 0 40px;
+  }
+  
+  .service-card-item {
+    flex: 0 0 calc(50% - 10px);
+    min-width: calc(50% - 10px);
+    max-width: calc(50% - 10px);
+  }
+  
+  .carousel-nav-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-carousel-wrapper {
+    padding: 0 35px;
+  }
+  
+  .service-card-item {
+    flex: 0 0 calc(100% - 0px);
+    min-width: calc(100% - 0px);
+    max-width: calc(100% - 0px);
+  }
+}

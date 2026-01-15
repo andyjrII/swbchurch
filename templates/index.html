@@ -391,71 +391,62 @@
       role="tabpanel"
       aria-labelledby="pills-home-tab"
     >
-      <div class="row">
-        <div class="col-md-3">
-          <div class="card bg-transparent border my-3 my-md-0">
-            <img
-              src="{% static 'assets/imgs/services-1.jpg' %}"
-              alt="sunday service"
-              class="rounded-0 card-img-top mg-responsive"
-            />
-            <div class="card-body">
-              <h4 class="text-center mb-2">
-                <span class="badge badge-primary">8:00AM</span>
-              </h4>
-              <h5 class="pt20 pb20">Sundays</h5>
-              <p class="text-white">Sunday Service</p>
-            </div>
+      <div class="services-carousel-wrapper" data-carousel="weekly">
+        <button class="carousel-nav-btn carousel-nav-prev" onclick="scrollServices('weekly', -1)" aria-label="Previous">
+          <i class="ti-angle-left"></i>
+        </button>
+        <div class="services-carousel-container">
+          <div class="services-carousel" id="weeklyCarousel">
+            {% if use_default_weekly %}
+              {% for service in weekly_services %}
+              <div class="service-card-item">
+                <div class="card bg-transparent border my-3 my-md-0">
+                  <div class="service-image-wrapper">
+                    <img
+                      src="{% static service.feature_pic_path %}"
+                      alt="{{ service.title }}"
+                      class="rounded-0 card-img-top mg-responsive service-image"
+                      onerror="this.onerror=null; this.style.display='none';"
+                    />
+                  </div>
+                  <div class="card-body">
+                    <h4 class="text-center mb-2">
+                      <span class="badge badge-primary">{{ service.time }}</span>
+                    </h4>
+                    <h5 class="pt20 pb20">{{ service.day }}</h5>
+                    <p class="text-white">{{ service.title }}</p>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            {% else %}
+              {% for service in weekly_services %}
+              <div class="service-card-item">
+                <div class="card bg-transparent border my-3 my-md-0">
+                  <div class="service-image-wrapper">
+                    <img
+                      src="{{ service.feature_pic.url }}"
+                      alt="{{ service.title }}"
+                      class="rounded-0 card-img-top mg-responsive service-image"
+                      onerror="this.onerror=null; this.style.display='none';"
+                    />
+                  </div>
+                  <div class="card-body">
+                    <h4 class="text-center mb-2">
+                      <span class="badge badge-primary">{{ service.time }}</span>
+                    </h4>
+                    <h5 class="pt20 pb20">{{ service.day }}</h5>
+                    <p class="text-white">{{ service.title }}</p>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            {% endif %}
           </div>
         </div>
-        <div class="col-md-3">
-          <div class="card bg-transparent border my-3 my-md-0">
-            <img
-              src="{% static 'assets/imgs/services-2.jpg' %}"
-              alt="Wednesday prayer meeting"
-              class="rounded-0 card-img-top mg-responsive"
-            />
-            <div class="card-body">
-              <h4 class="text-center mb-2">
-                <span class="badge badge-primary">5:30PM</span>
-              </h4>
-              <h5 class="pt20 pb20">Wednesdays</h5>
-              <p class="text-white">Prayer Meeting</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card bg-transparent border my-3 my-md-0">
-            <img
-              src="{% static 'assets/imgs/services-3.jpg' %}"
-              alt="mission is possible"
-              class="rounded-0 card-img-top mg-responsive"
-            />
-            <div class="card-body">
-              <h4 class="text-center mb-2">
-                <span class="badge badge-primary">10:00AM</span>
-              </h4>
-              <h5 class="pt20 pb20">Saturdays</h5>
-              <p class="text-white">Mission is Possible</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card bg-transparent border my-3 my-md-0">
-            <img
-              src="{% static 'assets/imgs/services-4.jpg' %}"
-              alt="word drill"
-              class="rounded-0 card-img-top mg-responsive"
-            />
-            <div class="card-body">
-              <h4 class="text-center mb-2">
-                <a href="#" class="badge badge-primary">7:00AM</a>
-              </h4>
-              <h5 class="pt20 pb20">Last Saturdays</h5>
-              <p class="text-white">Word Drill</p>
-            </div>
-          </div>
-        </div>
+        <button class="carousel-nav-btn carousel-nav-next" onclick="scrollServices('weekly', 1)" aria-label="Next">
+          <i class="ti-angle-right"></i>
+        </button>
       </div>
     </div>
     <!-- Special Services -->
@@ -465,71 +456,87 @@
       role="tabpanel"
       aria-labelledby="pills-profile-tab"
     >
-      <div class="row">
-        {% for service in services %}
-        <div class="col-md-3">
-          <div class="card bg-transparent border my-3 my-md-0">
-            <img
-              src="{{service.feature_pic.url}}"
-              alt="{{service.title}}"
-              class="rounded-0 card-img-top mg-responsive special-img-top"
-            />
-            <div class="card-body">
-              <h5 class="pt-2 pb-2">{{service.title}}</h5>
-              <h6 class="text-center mb-4">
-                <button
-                  class="btn btn-sm btn-primary"
-                  role="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#service_details{{service.id}}"
-                >
-                  More Details
-                </button>
-              </h6>
-            </div>
-          </div>
-        </div>
-        <!-- Modal -->
-        <div
-          class="modal fade"
-          id="service_details{{service.id}}"
-          tabindex="-1"
-          aria-labelledby="service_detailsLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-scrollable">
-            <div
-              class="modal-content service-modal"
-              style="background-image: url('{{service.feature_pic.url}}'); background-size: cover;"
-            >
-              <div class="overlay">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-4" id="service_detailsLabel">
-                    {{service.title}}
-                  </h1>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">{{service.details}}</div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
+      {% if special_services %}
+      <div class="services-carousel-wrapper" data-carousel="special">
+        <button class="carousel-nav-btn carousel-nav-prev" onclick="scrollServices('special', -1)" aria-label="Previous">
+          <i class="ti-angle-left"></i>
+        </button>
+        <div class="services-carousel-container">
+          <div class="services-carousel" id="specialCarousel">
+            {% for service in special_services %}
+            <div class="service-card-item">
+              <div class="card bg-transparent border my-3 my-md-0">
+                <img
+                  src="{{service.feature_pic.url}}"
+                  alt="{{service.title}}"
+                  class="rounded-0 card-img-top mg-responsive special-img-top"
+                />
+                <div class="card-body">
+                  <h5 class="pt-2 pb-2">{{service.title}}</h5>
+                  <h6 class="text-center mb-4">
+                    <button
+                      class="btn btn-sm btn-primary"
+                      role="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#service_details{{service.id}}"
+                    >
+                      More Details
+                    </button>
+                  </h6>
                 </div>
               </div>
             </div>
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="service_details{{service.id}}"
+              tabindex="-1"
+              aria-labelledby="service_detailsLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-scrollable">
+                <div
+                  class="modal-content service-modal"
+                  style="background-image: url('{{service.feature_pic.url}}'); background-size: cover;"
+                >
+                  <div class="overlay">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-4" id="service_detailsLabel">
+                        {{service.title}}
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">{{service.details}}</div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
           </div>
         </div>
-        {% endfor %}
+        <button class="carousel-nav-btn carousel-nav-next" onclick="scrollServices('special', 1)" aria-label="Next">
+          <i class="ti-angle-right"></i>
+        </button>
       </div>
+      {% else %}
+      <div class="text-center py-5">
+        <p class="text-muted">No special services yet.</p>
+      </div>
+      {% endif %}
     </div>
   </div>
 </div>
@@ -604,4 +611,109 @@
     </div>
   </div>
 </div>
+
+<script>
+  function scrollServices(carouselType, direction) {
+    const carousel = document.getElementById(carouselType + 'Carousel');
+    if (!carousel) return;
+    
+    const container = carousel.parentElement;
+    const scrollAmount = container.offsetWidth * 0.25; // Scroll by 1 item (25% of container width for 4 items)
+    const currentScroll = container.scrollLeft || 0;
+    const maxScroll = carousel.scrollWidth - container.offsetWidth;
+    
+    let newScroll;
+    if (direction === 1) {
+      // Scroll right
+      newScroll = Math.min(currentScroll + scrollAmount, maxScroll);
+    } else {
+      // Scroll left
+      newScroll = Math.max(currentScroll - scrollAmount, 0);
+    }
+    
+    container.scrollTo({
+      left: newScroll,
+      behavior: 'smooth'
+    });
+    
+    // Update arrow visibility after scroll
+    setTimeout(() => updateArrows(carouselType), 300);
+  }
+  
+  function updateArrows(carouselType) {
+    const carousel = document.getElementById(carouselType + 'Carousel');
+    if (!carousel) return;
+    
+    const container = carousel.parentElement;
+    const wrapper = document.querySelector(`[data-carousel="${carouselType}"]`);
+    if (!wrapper) return;
+    
+    const prevBtn = wrapper.querySelector('.carousel-nav-prev');
+    const nextBtn = wrapper.querySelector('.carousel-nav-next');
+    
+    if (!prevBtn || !nextBtn) return;
+    
+    const scrollLeft = container.scrollLeft || 0;
+    const maxScroll = carousel.scrollWidth - container.offsetWidth;
+    
+    // Show/hide arrows based on scroll position
+    if (scrollLeft <= 5) {
+      prevBtn.classList.add('disabled');
+    } else {
+      prevBtn.classList.remove('disabled');
+    }
+    
+    if (scrollLeft >= maxScroll - 5 || maxScroll <= 0) {
+      nextBtn.classList.add('disabled');
+    } else {
+      nextBtn.classList.remove('disabled');
+    }
+  }
+  
+  // Initialize arrows on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+      updateArrows('weekly');
+      updateArrows('special');
+    }, 100);
+    
+    // Update arrows when tabs are switched
+    const weeklyTab = document.getElementById('pills-home-tab');
+    const specialTab = document.getElementById('pills-profile-tab');
+    
+    if (weeklyTab) {
+      weeklyTab.addEventListener('shown.bs.tab', function() {
+        setTimeout(() => updateArrows('weekly'), 100);
+      });
+    }
+    
+    if (specialTab) {
+      specialTab.addEventListener('shown.bs.tab', function() {
+        setTimeout(() => updateArrows('special'), 100);
+      });
+    }
+    
+    // Update arrows on window resize
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        updateArrows('weekly');
+        updateArrows('special');
+      }, 250);
+    });
+    
+    // Update arrows on scroll (in case user scrolls manually)
+    const weeklyContainer = document.getElementById('weeklyCarousel')?.parentElement;
+    const specialContainer = document.getElementById('specialCarousel')?.parentElement;
+    
+    if (weeklyContainer) {
+      weeklyContainer.addEventListener('scroll', () => updateArrows('weekly'));
+    }
+    if (specialContainer) {
+      specialContainer.addEventListener('scroll', () => updateArrows('special'));
+    }
+  });
+</script>
+
 {% endblock %}
