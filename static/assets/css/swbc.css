@@ -2875,6 +2875,24 @@ select.custom-form-control:focus {
   -moz-column-count: 2;
 }
 
+/* Confession section styling */
+.confession-header {
+  color: #ff214f;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.devotional-confession {
+  font-size: larger;
+  padding: 30px;
+  background-color: #fffffff3;
+  color: #000000;
+  border-radius: 10px;
+  text-align: justify;
+}
+
 .devotional-content.two-column-content p,
 .devotional-content.two-column-content div,
 .devotional-content.two-column-content h1,

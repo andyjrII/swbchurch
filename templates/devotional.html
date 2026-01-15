@@ -20,8 +20,18 @@
 <!-- CONTENT Section  -->
 <div id="devotional_content" class="container-fluid wow fadeIn mb-5">
   <div class="row justify-content-center">
-    <div class="col-md-10 text-justify devotional-content two-column-content">
-      {{devotional.contents|safe}}
+    <div class="col-md-10">
+      <div class="text-justify devotional-content two-column-content">
+        {{devotional.contents|safe}}
+        {% if devotional.confession %}
+        <div class="confession-section mt-4">
+          <h3 class="confession-header">Confession</h3>
+          <div class="devotional-confession">
+            {{devotional.confession|safe}}
+          </div>
+        </div>
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>
