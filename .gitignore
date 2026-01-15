@@ -2,3 +2,9 @@
 
 readme.md
 plan.md
+
+# Ignore .env file (contains secrets)
+.env
+
+# Explicitly allow .env.example (override any global ignores)
+!.env.example

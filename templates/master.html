@@ -173,6 +173,11 @@
     <!-- js files -->
     <script src="{% static 'assets/vendors/wow/wow.js' %}"></script>
     <script src="{% static 'assets/js/swbc.js' %}"></script>
+    
+    <!-- Paystack Configuration -->
+    <script>
+      window.PAYSTACK_PUBLIC_KEY = '{{ PAYSTACK_PUBLIC_KEY|default:"pk_test_244916c0bd11624711bdab398418c05413687296" }}';
+    </script>
     <script src="{% static 'assets/js/paystack.js' %}"></script>
 
     <!-- Paystack Script -->

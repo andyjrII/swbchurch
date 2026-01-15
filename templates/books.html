@@ -31,39 +31,25 @@
   </div>
 
   <!-- BOOKS Section -->
-  <div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
-    <div class="row justify-content-center">
+  <div class="container-fluid bg-dark text-light py-5">
+    <div class="bookstore-grid">
       {% for book in paginated_books %}
-      <div class="col-sm-3 mb-2">
-        <div class="card bg-transparent border">
-          <img
-            src="{{book.cover_image.url}}"
-            alt="{{book.title}}"
-            class="rounded-0 mg-responsive sermon-img-top"
-          />
-          <div class="card-body">
-            <h5 class="mt-2 mb-2">{{book.title}}</h5>
-            <h6 class="mb-2">{{book.author}}</h6>
-            <h6 class="text-center mb-3 text-muted">&#8358; {{book.price}}</h6>
-            <p class="text-white">
-              <button
-                class="btn btn-sm btn-primary m-2"
-                role="button"
-                data-bs-toggle="modal"
-                data-bs-target="#book_description{{book.id}}"
-              >
-                Description
-              </button>
-              <button
-                class="btn btn-sm btn-outline-primary"
-                role="button"
-                data-bs-toggle="modal"
-                data-bs-target="#book_purchase{{book.id}}"
-              >
-                Buy
-              </button>
-            </p>
+      <div class="book-item">
+        <div class="book-cover-wrapper">
+          <img src="{{book.cover_image.url}}" alt="{{book.title}}" class="book-cover" loading="lazy" />
+          <div class="book-actions">
+            <button class="book-action-btn book-action-info" data-bs-toggle="modal" data-bs-target="#book_description{{book.id}}" title="View Description">
+              <span class="ti-info"></span>
+            </button>
+            <button class="book-action-btn book-action-buy" data-bs-toggle="modal" data-bs-target="#book_purchase{{book.id}}" title="Purchase">
+              <span class="ti-shopping-cart"></span>
+            </button>
           </div>
+        </div>
+        <div class="book-details">
+          <h5 class="book-name">{{book.title}}</h5>
+          <p class="book-writer">{{book.author}}</p>
+          <div class="book-price">&#8358; {{book.price}}</div>
         </div>
       </div>
 
@@ -177,7 +163,6 @@
                   <button
                     type="submit"
                     class="btn bg-success"
-                    onclick="payWithPaystack()"
                   >
                     Submit
                   </button>
@@ -199,39 +184,8 @@
   </div>
 
   <!-- PAGINATION Section -->
-  <div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
-    <div class="pagination">
-      <span class="step-links">
-        {% if paginated_books.has_previous %}
-        <a href="?page=1" class="btn btn-md btn-outline-primary"
-          >&laquo; First</a
-        >
-        <a
-          href="?page={{ paginated_books.previous_page_number }}"
-          class="btn btn-md btn-outline-primary"
-          >Previous</a
-        >
-        {% endif %}
-
-        <span class="current bg-primary p-2 rounded">
-          Page {{ paginated_books.number }} of
-          {{paginated_books.paginator.num_pages }}.
-        </span>
-
-        {% if paginated_books.has_next %}
-        <a
-          href="?page={{ paginated_books.next_page_number }}"
-          class="btn btn-md btn-outline-primary"
-          >Next</a
-        >
-        <a
-          href="?page={{ paginated_books.paginator.num_pages }}"
-          class="btn btn-md btn-outline-primary"
-          >Last &raquo;</a
-        >
-        {% endif %}
-      </span>
-    </div>
-  </div>
+  {% with paginated_items=paginated_books %}
+    {% include 'partials/pagination.html' %}
+  {% endwith %}
   {% endblock %}
 </div>

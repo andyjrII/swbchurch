@@ -19,11 +19,12 @@
 >
   <div class="">
     <form method="get">
-      <div class="row mb-5">
-        <div class="col-md-9 my-2">{{ form.title }}</div>
-        <div class="col-md-2 my-2">{{ form.year }}</div>
-        <div class="col-md-1 my-3">
-          <button type="submit" class="btn btn-lg btn-primary" id="rounded-btn">
+      <div class="row mb-5 align-items-center justify-content-center">
+        <div class="col-md-3 col-sm-6 my-2">{{ form.title }}</div>
+        <div class="col-md-3 col-sm-6 my-2">{{ form.author }}</div>
+        <div class="col-md-2 col-sm-4 my-2">{{ form.year }}</div>
+        <div class="col-md-2 col-sm-8 my-2">
+          <button type="submit" class="btn btn-primary w-100" id="rounded-btn" style="font-size: 14px; font-weight: 600; padding: 10px 20px; height: 100%;">
             SEARCH
           </button>
         </div>
@@ -31,72 +32,73 @@
     </form>
   </div>
 
-  <!-- SERMONS Section -->
-  <div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
-    <div class="row justify-content-center">
-      {% for sermon in paginated_sermons %}
-      <div class="col-sm-3 mb-2">
-        <div class="card bg-transparent border">
-          <img
-            src="{{sermon.feature_pic.url}}"
-            alt="{{sermon.title}}"
-            class="rounded-0 mg-responsive sermon-img-top"
-          />
-          <div class="card-body">
-            <h6 class="text-center mb-2">
-              <span class="badge badge-success">{{sermon.date_preached}}</span>
-            </h6>
-            <h6 class="pt20 pb20">{{sermon.title}}</h6>
-            <p class="text-white">
-              <a
-                href="{{sermon.link}}"
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-                ><button class="btn btn-sm btn-primary">Download</button></a
-              >
-            </p>
-          </div>
+  <!-- ALL SERMONS Section -->
+  <div class="container-fluid bg-dark text-light py-4">
+    <div class="sermon-showcase">
+      <h3 class="showcase-header">All Sermons</h3>
+      
+      <div class="showcase-wrapper">
+        <div class="showcase-grid">
+          {% for sermon in paginated_sermons %}
+          <article class="sermon-album">
+            <div class="album-art">
+              <img src="{{sermon.feature_pic.url}}" alt="{{sermon.title}}" loading="lazy" />
+              {% if sermon.has_audio %}
+              <div class="album-action">
+                <a href="{% url 'download_sermon' sermon.id %}" download class="action-btn">
+                  <i class="ti-download"></i>
+                </a>
+              </div>
+              {% endif %}
+            </div>
+            <h4 class="album-title">{{sermon.title}}</h4>
+            <p class="album-artist">{{sermon.author}}</p>
+            {% if sermon.date_preached %}
+            <time class="album-date">{{sermon.date_preached|date:"M. d, Y"}}</time>
+            {% endif %}
+          </article>
+          {% endfor %}
         </div>
       </div>
-      {% endfor %}
     </div>
   </div>
 
   <!-- PAGINATION Section -->
-  <div class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
-    <div class="pagination">
-      <span class="step-links">
-        {% if paginated_sermons.has_previous %}
-        <a href="?page=1" class="btn btn-md btn-outline-primary"
-          >&laquo; First</a
-        >
-        <a
-          href="?page={{ paginated_sermons.previous_page_number }}"
-          class="btn btn-md btn-outline-primary"
-          >Previous</a
-        >
-        {% endif %}
+  {% with paginated_items=paginated_sermons %}
+    {% include 'partials/pagination.html' %}
+  {% endwith %}
 
-        <span class="current bg-primary p-2 rounded">
-          Page {{ paginated_sermons.number }} of
-          {{paginated_sermons.paginator.num_pages }}.
-        </span>
-
-        {% if paginated_sermons.has_next %}
-        <a
-          href="?page={{ paginated_sermons.next_page_number }}"
-          class="btn btn-md btn-outline-primary"
-          >Next</a
-        >
-        <a
-          href="?page={{ paginated_sermons.paginator.num_pages }}"
-          class="btn btn-md btn-outline-primary"
-          >Last &raquo;</a
-        >
-        {% endif %}
-      </span>
+  <!-- WEEKLY TOP SERMONS Section -->
+  {% if top_sermons %}
+  <div class="container-fluid bg-dark text-light py-5">
+    <div class="sermon-showcase">
+      <h3 class="showcase-header">Weekly Top Sermons</h3>
+      
+      <div class="showcase-wrapper">
+        <div class="top-sermons-grid">
+          {% for sermon in top_sermons %}
+          <article class="sermon-album">
+            <div class="album-art">
+              <img src="{{sermon.feature_pic.url}}" alt="{{sermon.title}}" loading="lazy" />
+              {% if sermon.has_audio %}
+              <div class="album-action">
+                <a href="{% url 'download_sermon' sermon.id %}" download class="action-btn">
+                  <i class="ti-download"></i>
+                </a>
+              </div>
+              {% endif %}
+            </div>
+            <h4 class="album-title">{{sermon.title}}</h4>
+            <p class="album-artist">{{sermon.author}}</p>
+            {% if sermon.date_preached %}
+            <time class="album-date">{{sermon.date_preached|date:"M. d, Y"}}</time>
+            {% endif %}
+          </article>
+          {% endfor %}
+        </div>
+      </div>
     </div>
   </div>
+  {% endif %}
   {% endblock %}
 </div>

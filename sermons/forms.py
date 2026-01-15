@@ -22,14 +22,25 @@ class SearchForm(forms.Form):
             }
         ),
     )
-    year = forms.IntegerField(
-        min_value=2020,
-        max_value=2100,
+    author = forms.CharField(
         required=False,
         widget=PlaceholderTextInput(
             attrs={
                 "class": "form-control form-control-lg custom-form-control",
+                "placeholder": "AUTHOR",
+            }
+        ),
+    )
+    year = forms.IntegerField(
+        min_value=2020,
+        max_value=2100,
+        required=False,
+        widget=forms.NumberInput(
+            attrs={
+                "class": "form-control form-control-lg custom-form-control",
                 "placeholder": "YEAR",
+                "min": "2020",
+                "max": "2100",
             }
         ),
     )

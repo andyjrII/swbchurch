@@ -1,0 +1,45 @@
+{% if paginated_items.has_other_pages %}
+<div class="pagination-wrapper">
+  <div class="pagination-container">
+    <div class="pagination-info">
+      <span class="page-indicator">
+        Page <strong>{{ paginated_items.number }}</strong> of <strong>{{ paginated_items.paginator.num_pages }}</strong>
+      </span>
+    </div>
+    
+    <div class="pagination-controls">
+      {% if paginated_items.has_previous %}
+      <a href="?page=1" class="pagination-btn pagination-btn-first" title="First Page">
+        <span class="ti-angle-double-left"></span>
+      </a>
+      <a href="?page={{ paginated_items.previous_page_number }}" class="pagination-btn pagination-btn-prev" title="Previous">
+        <span class="ti-angle-left"></span>
+      </a>
+      {% else %}
+      <span class="pagination-btn pagination-btn-disabled">
+        <span class="ti-angle-double-left"></span>
+      </span>
+      <span class="pagination-btn pagination-btn-disabled">
+        <span class="ti-angle-left"></span>
+      </span>
+      {% endif %}
+
+      {% if paginated_items.has_next %}
+      <a href="?page={{ paginated_items.next_page_number }}" class="pagination-btn pagination-btn-next" title="Next">
+        <span class="ti-angle-right"></span>
+      </a>
+      <a href="?page={{ paginated_items.paginator.num_pages }}" class="pagination-btn pagination-btn-last" title="Last Page">
+        <span class="ti-angle-double-right"></span>
+      </a>
+      {% else %}
+      <span class="pagination-btn pagination-btn-disabled">
+        <span class="ti-angle-right"></span>
+      </span>
+      <span class="pagination-btn pagination-btn-disabled">
+        <span class="ti-angle-double-right"></span>
+      </span>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}

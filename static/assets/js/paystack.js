@@ -20,7 +20,7 @@ paymentForms.forEach((form) => {
 
 function payWithPaystack(book_id) {
   let handler = PaystackPop.setup({
-    key: 'pk_test_244916c0bd11624711bdab398418c05413687296', // Replace with your public key
+    key: window.PAYSTACK_PUBLIC_KEY || 'pk_test_244916c0bd11624711bdab398418c05413687296', // Use from environment or fallback
     email: document.getElementById('email-address' + book_id).value,
     amount: Number(document.getElementById('amount' + book_id).value) * 100,
     ref: '' + Math.floor(Math.random() * 1000000000 + 1),
@@ -74,7 +74,7 @@ function sendTransactionIdToBackend(transactionId, bookId, email) {
     function (response) {
       if (response.success) {
         alert(
-          `Book purchase successful! Check ${buyer_email} for your book. Check spam if not found in inbox!`
+          `Book purchase successful! Check ${email} for your book. Check spam if not found in inbox!`
         );
       } else {
         alert('Failed to purchase book: ' + response.error);

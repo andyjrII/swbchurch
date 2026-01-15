@@ -2197,6 +2197,454 @@ body {
   display: none;
 }
 
+/* Fresh Sermon Album Design */
+.sermon-showcase {
+  padding: 30px 50px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.showcase-header {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 25px 0;
+  padding: 0;
+}
+
+.showcase-wrapper {
+  width: 100%;
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 20px;
+  max-width: 100%;
+}
+
+.top-sermons-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  max-width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .top-sermons-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .top-sermons-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-sermons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.sermon-album {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.album-art {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #2a2a2a;
+  margin-bottom: 10px;
+}
+
+.album-art img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sermon-album:hover .album-art img {
+  transform: scale(1.08);
+}
+
+.album-action {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+.sermon-album:hover .album-action {
+  opacity: 1;
+}
+
+.action-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #dc3545;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.action-btn:hover {
+  background: #c82333;
+  transform: scale(1.1);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.album-title {
+  font-size: 9px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 5px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+
+.album-artist {
+  font-size: 9px;
+  color: #aaaaaa;
+  margin: 0 0 4px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.album-date {
+  font-size: 8px;
+  color: #666666;
+  opacity: 0.6;
+  margin: 0;
+  font-weight: 400;
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .sermon-showcase {
+    padding: 25px 40px;
+  }
+  
+  .showcase-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sermon-showcase {
+    padding: 20px 30px;
+  }
+  
+  .showcase-grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .showcase-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}
+
+/* Fancy Pagination Design */
+.pagination-wrapper {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.pagination-info {
+  padding: 0 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.page-indicator {
+  font-size: 14px;
+  color: #cccccc;
+  font-weight: 400;
+}
+
+.page-indicator strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.pagination-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.pagination-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.pagination-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.pagination-btn:active {
+  transform: translateY(0);
+}
+
+.pagination-btn-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.pagination-btn-disabled:hover {
+  transform: none;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: none;
+}
+
+.pagination-btn span {
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .pagination-container {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+    border-radius: 20px;
+  }
+  
+  .pagination-info {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0 0 10px 0;
+  }
+  
+  .pagination-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+}
+
+/* Books Grid Design - Fresh Concept */
+.bookstore-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 25px;
+  padding: 30px 50px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.book-item {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.book-item:hover {
+  transform: translateY(-5px);
+}
+
+.book-cover-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 140%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #2a2a2a;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.book-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.book-item:hover .book-cover {
+  transform: scale(1.05);
+}
+
+.book-actions {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.book-cover-wrapper:hover .book-actions {
+  opacity: 1;
+}
+
+.book-action-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.book-action-info {
+  background: rgba(59, 130, 246, 0.9);
+}
+
+.book-action-info:hover {
+  background: rgba(59, 130, 246, 1);
+  transform: scale(1.1);
+  color: #ffffff;
+}
+
+.book-action-buy {
+  background: rgba(34, 197, 94, 0.9);
+}
+
+.book-action-buy:hover {
+  background: rgba(34, 197, 94, 1);
+  transform: scale(1.1);
+  color: #ffffff;
+}
+
+.book-details {
+  text-align: left;
+}
+
+.book-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.book-writer {
+  font-size: 11px;
+  color: #aaaaaa;
+  margin: 0 0 8px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.book-price {
+  font-size: 15px;
+  font-weight: 700;
+  color: #34d399;
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .bookstore-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+    padding: 25px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bookstore-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 18px;
+    padding: 20px 30px;
+  }
+  
+  .book-action-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bookstore-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    padding: 15px 20px;
+  }
+}
+
 /* Styles for showing the menu on small screens */
 @media (max-width: 768px) {
   #navbarSupportedContent {
