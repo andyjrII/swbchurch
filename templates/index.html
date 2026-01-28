@@ -544,32 +544,40 @@
 <!-- NEWS & EVENTS Section  -->
 <div
   id="events"
-  class="container-fluid wow fadeIn bg-dark text-light has-height-lg middle-items"
+  class="container-fluid wow fadeIn bg-dark text-light py-5"
 >
   <h2 class="section-title my-5 text-center">NEWS & EVENTS</h2>
-  <div class="row mt-3 mb-3">
+  <div class="row justify-content-center">
     {% for latest in latest_newsevents %}
-    <div class="col-md-4 my-3 my-md-0">
-      <div class="newsevents-card">
-        <h4 class="newsevents-title">{{latest.title}}</h4>
-        <h6 class="newsevents-subtitle">{{latest.date_updated}}</h6>
-        <div class="newsevents-body">
-          <p>
-            {{latest.content|safe|truncatewords:20}}
-            <a
-              href="newsevents/details/{{latest.id}}"
-              class="badge badge-primary"
-              >More
-            </a>
-          </p>
+    <div class="col-md-4 col-sm-6 my-3">
+      <article class="newsevent-card">
+        {% if latest.feature_pic %}
+        <div class="newsevent-image-wrapper">
+          <img
+            src="{{latest.feature_pic.url}}"
+            alt="{{latest.title}}"
+            class="newsevent-image"
+            loading="lazy"
+          />
         </div>
-      </div>
+        {% endif %}
+        <div class="newsevent-content">
+          <h4 class="newsevent-title">{{latest.title}}</h4>
+          <time class="newsevent-date">{{latest.date_updated|date:"M. d, Y"}}</time>
+          <p class="newsevent-excerpt">
+            {{latest.content|safe|truncatewords:25}}
+          </p>
+          <a href="newsevents/details/{{latest.id}}" class="newsevent-link">
+            Read More
+          </a>
+        </div>
+      </article>
     </div>
     {% endfor %}
   </div>
-  <h2 class="text-center mb-4">
+  <div class="text-center mt-5 mb-4">
     <a href="/newsevents" class="btn btn-lg btn-primary">MORE EVENTS</a>
-  </h2>
+  </div>
 </div>
 
 <!-- CONTACT Section  -->
