@@ -33,26 +33,17 @@ function toggleOverlay(imageContainer) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Get references to the menu and toggle button
+  // Close mobile menu when a nav link is clicked (Bootstrap 5 handles the toggler itself)
   var menu = document.getElementById('navbarSupportedContent');
-  var toggleButton = document.getElementById('menu-toggle');
+  if (!menu) return;
 
-  // Add click event listener to each menu item
   var menuItems = menu.querySelectorAll('.nav-link');
   menuItems.forEach(function (item) {
     item.addEventListener('click', function () {
-      // Check if menu is open (i.e., not collapsed into hamburger menu)
-      if (menu.classList.contains('show')) {
-        // Close the menu by removing the "show" class
-        menu.classList.remove('show');
-        toggleButton.classList.add('collapsed'); // Reset the collapsed state of the toggle button
+      if (window.bootstrap && menu.classList.contains('show')) {
+        var collapse = bootstrap.Collapse.getInstance(menu);
+        if (collapse) collapse.hide();
       }
     });
-  });
-
-  // Add click event listener to the toggle button
-  toggleButton.addEventListener('click', function () {
-    // Toggle the "show" class on the menu to show/hide it
-    menu.classList.toggle('show');
   });
 });

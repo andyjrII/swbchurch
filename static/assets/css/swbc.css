@@ -2377,10 +2377,8 @@ select.custom-form-control:focus {
   }
 }
 
-/* Styles for hiding the menu initially */
-#navbarSupportedContent {
-  display: none;
-}
+/* Navbar collapse: let Bootstrap control visibility via .show;
+   do not force display so the mobile toggler can open/close the menu. */
 
 /* Fresh Sermon Album Design */
 .sermon-showcase {
@@ -2830,12 +2828,8 @@ select.custom-form-control:focus {
   }
 }
 
-/* Styles for showing the menu on small screens */
-@media (max-width: 768px) {
-  #navbarSupportedContent {
-    display: block;
-  }
-}
+/* Mobile menu visibility is controlled by Bootstrap collapse (.show);
+   no override needed so the toggler can collapse/expand the menu. */
 
 /* Devotionals Showcase Styles */
 .devotional-showcase {
